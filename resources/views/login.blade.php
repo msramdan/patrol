@@ -83,7 +83,7 @@
                             </div>
                         </form>
                         <a href="forgot-password.html" class="btn-link d-block mb-3 text-end text-underline">Forgot Password</a>
-                        <a href="index.html" class="btn btn-primary btn-block mb-3">SIGN IN</a>
+                        <a href="#" class="btn btn-primary btn-block mb-3">SIGN IN</a>
                         <div class="social-box">
                             <span>Or sign in with</span>
                             <div class="d-flex justify-content-between">
