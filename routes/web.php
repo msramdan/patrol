@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\JobController;
 use Illuminate\Support\Facades\Route;
+
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +18,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
-//sementara 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/job', [App\Http\Controllers\JobController::class, 'index'])->name('job');
+Route::get('/home', function () {
+    return redirect()->route('home');
+});
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/job', [JobController::class, 'index'])->name('job');
 Route::get('/post', function () {
     return view('post');
 })->name('post');
@@ -30,9 +33,3 @@ Route::get('/chat', function () {
 Route::get('/profile', function () {
     return view('profile');
 })->name('profile');
-Route::get('/', function () {
-    return view('login');
-})->name('login');
-Route::get('/register', function () {
-    return view('register');
-})->name('register');

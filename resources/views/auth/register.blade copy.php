@@ -3,39 +3,39 @@
 
 <!-- Mirrored from soziety.dexignzone.com/xhtml/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Aug 2023 02:37:07 GMT -->
 <head>
-    
+
     <!-- Meta -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
 	<meta name="theme-color" content="#2196f3">
-	<meta name="author" content="DexignZone" /> 
-    <meta name="keywords" content="" /> 
-    <meta name="robots" content="" /> 
+	<meta name="author" content="DexignZone" />
+    <meta name="keywords" content="" />
+    <meta name="robots" content="" />
 	<meta name="description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )"/>
 	<meta property="og:title" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
 	<meta property="og:description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
 	<meta property="og:image" content="error.html"/>
 	<meta name="format-detection" content="telephone=no">
-    
+
     <!-- Favicons Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
-    
+
     <!-- Title -->
 	<title>Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )</title>
-    
+
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ asset('template') }}/assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('template') }}/assets/css/style.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
 
-</head>   
+</head>
 <body class="gradiant-bg">
 <div class="page-wraper">
-    
+
     <!-- Preloader -->
 	<div id="preloader">
 		<div class="spinner"></div>
@@ -71,7 +71,7 @@
 										<path d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 										<path d="M22 6L12 13L2 6" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 									</svg>
-								</div>		
+								</div>
 							</span>
 							<input type="email" class="form-control" placeholder="Email">
 						</div>
@@ -85,7 +85,7 @@
 								</div>
 							</span>
 							<input type="password" class="form-control dz-password" placeholder="Password">
-							<span class="input-group-text show-pass"> 
+							<span class="input-group-text show-pass">
 								<i class="fa fa-eye-slash text-primary"></i>
 								<i class="fa fa-eye text-primary"></i>
 							</span>
@@ -101,8 +101,8 @@
 		</div>
 	</div>
     <!-- Welcome End -->
-	
-    
+
+
 </div>
 <!--**********************************
     Scripts
