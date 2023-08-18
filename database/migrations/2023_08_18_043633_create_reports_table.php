@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('no_laporan');
             $table->string('judul');
             $table->longText('deskripsi')->nullable();
-            $table->datetimes('tanggal');
+            $table->datetime('tanggal');
             $table->string('phone');
             $table->string('photo')->nullable();
             $table->string('status_laporan');

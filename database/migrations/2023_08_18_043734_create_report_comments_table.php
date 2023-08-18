@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('laporan_id');
             $table->integer('user_id');
-            $table->datetimes('tanggal');
+            $table->datetime('tanggal');
             $table->longText('deskripsi');
             $table->timestamps();
         });
