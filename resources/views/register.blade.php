@@ -94,7 +94,7 @@
 					<a href="login.html" class="btn btn-primary btn-block mb-3">REGISTER</a>
 					<div class="d-flex align-items-center justify-content-center">
 						<a href="javascript:void(0);" class="text-light text-center d-block">Don’t have an account?</a>
-						<a href="login.html" class="btn-link d-block ms-3 text-underline">Signin here</a>
+						<a href="{{ route('login') }}" class="btn-link d-block ms-3 text-underline">Signin here</a>
 					</div>
 				</div>
 			</div>
