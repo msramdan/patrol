@@ -10,25 +10,20 @@
                 <path d="M21.44 11.035a.75.75 0 0 1-.69.465H18.5V19a2.25 2.25 0 0 1-2.25 2.25h-3a.75.75 0 0 1-.75-.75V16a.75.75 0 0 0-.75-.75h-1.5a.75.75 0 0 0-.75.75v4.5a.75.75 0 0 1-.75.75h-3A2.25 2.25 0 0 1 3.5 19v-7.5H1.25a.75.75 0 0 1-.69-.465.75.75 0 0 1 .158-.818l9.75-9.75A.75.75 0 0 1 11 .246a.75.75 0 0 1 .533.222l9.75 9.75a.75.75 0 0 1 .158.818z" fill="#b5b5b5" />
             </svg>
         </a>
-        
-        <a href="{{ route('job') }}" class="nav-link {{ $thiRute == 'job' ? 'active' : '' }}">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="#b5b5b5" stroke-opacity="1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M21 21L16.65 16.65" stroke="#b5b5b5" stroke-opacity="1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </a>
-        <a href="{{ route('post') }}" class="nav-link add-post">
-            <i class="fa-solid fa-plus"></i>
-        </a>
-        <a href="{{ route('chat') }}" class="nav-link {{ $thiRute == 'chat' ? 'active' : '' }}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="#b5b5b5" viewBox="0 0 511.606 511.606" xmlns:v="https://vecta.io/nano">
-                <path d="M436.594 74.943c-99.917-99.917-261.637-99.932-361.568 0-80.348 80.347-95.531 199.817-48.029 294.96L.662 485.742c-3.423 15.056 10.071 28.556 25.133 25.133l115.839-26.335c168.429 84.092 369.846-37.653 369.846-228.812 0-68.29-26.595-132.494-74.886-180.785zM309.143 319.394h-160c-11.598 0-21-9.402-21-21s9.402-21 21-21h160c11.598 0 21 9.402 21 21s-9.402 21-21 21zm53.334-85.333H149.143c-11.598 0-21-9.402-21-21s9.402-21 21-21h213.334c11.598 0 21 9.402 21 21s-9.403 21-21 21z" />
-            </svg>
-        </a>
         <a href="{{ route('profile') }}" class="nav-link {{ $thiRute == 'profile' ? 'active' : '' }}">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="21" fill="#b5b5b5" xmlns:v="https://vecta.io/nano">
                 <path d="M8 7.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 1 0 0 7.5zm7.5 9v1.5c-.002.199-.079.39-.217.532C13.61 20.455 8.57 20.5 8 20.5s-5.61-.045-7.282-1.718C.579 18.64.501 18.449.5 18.25v-1.5a7.5 7.5 0 1 1 15 0z" />
             </svg>
         </a>
+        <a href="{{ route('post') }}" class="nav-link add-post">
+            <i class="fa-solid fa-plus"></i>
+        </a>
+        <a href="{{ route('job') }}" class="nav-link {{ $thiRute == 'job' ? 'active' : '' }}">
+            <svg fill="#B5B5B5" height="24" width="24" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M484.554,50.286H27.446C12.288,50.286,0,62.574,0,77.732v356.536c0,15.158,12.288,27.446,27.446,27.446h457.107 c15.158,0,27.446-12.288,27.446-27.446V77.732C512,62.574,499.712,50.286,484.554,50.286z M481.732,68.571L256.947,293.357 L32.161,68.571H481.732z M18.286,429.886v-349l174.5,174.5L18.286,429.886z M32.161,443.429l174.5-174.807l43.821,43.669 c1.786,1.786,4.125,2.601,6.464,2.601c2.339,0,4.678-0.931,6.464-2.716l43.824-43.537l174.502,174.79H32.161z M493.714,429.883 L319.216,255.384L493.714,80.886V429.883z"></path> </g> </g> </g></svg>
+        </a>
+        <a href="{{ route('chat') }}" class="nav-link {{ $thiRute == 'chat' ? 'active' : '' }}">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M14 20H6C4.89543 20 4 19.1046 4 18L4 6C4 4.89543 4.89543 4 6 4H14M10 12H21M21 12L18 15M21 12L18 9" stroke="#B5B5B5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+        </a>
+
     </div>
 </div>
