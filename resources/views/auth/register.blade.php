@@ -11,23 +11,15 @@
 	<meta name="author" content="DexignZone" />
     <meta name="keywords" content="" />
     <meta name="robots" content="" />
-	<meta name="description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )"/>
-	<meta property="og:title" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
-	<meta property="og:description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
+	<meta name="description" content=""/>
+	<meta property="og:title" content="" />
+	<meta property="og:description" content="" />
 	<meta property="og:image" content="error.html"/>
 	<meta name="format-detection" content="telephone=no">
-
-    <!-- Favicons Icon -->
-	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
-
-    <!-- Title -->
-	<title>Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )</title>
-
-    <!-- Stylesheets -->
+	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('template') }}/assets/images/favicon.png" />
+	<title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="{{ asset('template') }}/assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('template') }}/assets/css/style.css">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -35,18 +27,13 @@
 </head>
 <body class="gradiant-bg">
 <div class="page-wraper">
-
-    <!-- Preloader -->
 	<div id="preloader">
 		<div class="spinner"></div>
 	</div>
-    <!-- Preloader end-->
-
-    <!-- Welcome Start -->
 	<div class="content-body">
 		<div class="container vh-100">
 			<div class="welcome-area">
-				<div class="bg-image bg-image-overlay" style="background-image: url(assets/images/login/pic3.jpg);"></div>
+				<div class="bg-image bg-image-overlay" style="background-image: url(template/assets/images/login/pic3.jpg);"></div>
 				<div class="join-area">
 					<div class="started">
 						<h1 class="title">Buat Akun Baru</h1>

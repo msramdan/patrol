@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from soziety.dexignzone.com/xhtml/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Aug 2023 02:37:07 GMT -->
-
 <head>
-
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
@@ -13,23 +9,15 @@
     <meta name="author" content="DexignZone" />
     <meta name="keywords" content="" />
     <meta name="robots" content="" />
-    <meta name="description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
-    <meta property="og:title" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
-    <meta property="og:description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
+    <meta name="description" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
     <meta property="og:image" content="error.html" />
     <meta name="format-detection" content="telephone=no">
-
-    <!-- Favicons Icon -->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
-
-    <!-- Title -->
-    <title>Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )</title>
-
-    <!-- Stylesheets -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('template') }}/assets/images/favicon.png" />
+    <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="stylesheet" href="{{ asset('template') }}/assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('template') }}/assets/css/style.css">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link
@@ -40,18 +28,13 @@
 
 <body class="gradiant-bg">
     <div class="page-wraper">
-
-        <!-- Preloader -->
         <div id="preloader">
             <div class="spinner"></div>
         </div>
-        <!-- Preloader end-->
-
-        <!-- Welcome Start -->
         <div class="content-body">
             <div class="container vh-100">
                 <div class="welcome-area">
-                    <div class="bg-image bg-image-overlay" style="background-image: url(assets/images/login/pic4.jpg);">
+                    <div class="bg-image bg-image-overlay" style="background-image: url(template/assets/images/login/pic4.jpg);">
                     </div>
                     <div class="join-area">
                         <div class="started">
@@ -112,8 +95,6 @@
                 </div>
             </div>
         </div>
-        <!-- Welcome End -->
-
     </div>
     <script src="{{ asset('template') }}/assets/js/jquery.js"></script>
     <script src="{{ asset('template') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
