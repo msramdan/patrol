@@ -18,5 +18,15 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
+//sementara 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/job', [App\Http\Controllers\JobController::class, 'index'])->name('job');
+Route::get('/post', function () {
+    return view('post');
+})->name('post');
+Route::get('/chat', function () {
+    return view('chat');
+})->name('chat');
+Route::get('/profile', function () {
+    return view('profile');
+})->name('profile');
