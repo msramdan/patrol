@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->integer('user_id');
             $table->date('tanggal');
-            $table->timestamps('jam_awal');
-            $table->timestamps('jam_akhir');
+            $table->time('jam_awal');
+            $table->time('jam_akhir');
             $table->string('penugasan');
             $table->timestamps();
         });
