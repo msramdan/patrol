@@ -384,6 +384,7 @@
     <script>
         $(".stepper").TouchSpin();
     </script>
+    @include('sweetalert::alert')
 </body>
 
 </html>

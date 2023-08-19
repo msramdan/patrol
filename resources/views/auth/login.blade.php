@@ -57,7 +57,7 @@
                                         </svg>
                                     </div>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Name">
+                                <input type="text" class="form-control" placeholder="Email" required autocomplete="off">
                             </div>
                             <div class="mb-3 input-group input-group-icon">
                                 <span class="input-group-text">
@@ -72,7 +72,7 @@
                                         </svg>
                                     </div>
                                 </span>
-                                <input type="password" class="form-control dz-password" placeholder="Password">
+                                <input type="password" class="form-control dz-password" placeholder="Password" required>
                                 <span class="input-group-text show-pass">
                                     <i class="fa fa-eye-slash text-primary"></i>
                                     <i class="fa fa-eye text-primary"></i>
@@ -83,7 +83,9 @@
                         <center>
                             <span>Atau masuk dengan</span>
                             <div class="social-box">
-                                <img src="{{ asset('template') }}/assets/images/icons/google.png" alt="/">
+                                <a href="/auth/google">
+                                    <img src="{{ asset('template') }}/assets/images/icons/google.png" alt="/">
+                                </a>
                             </div>
                         </center>
 
@@ -102,5 +104,6 @@
     <script src="{{ asset('template') }}/assets/js/dz.carousel.js"></script><!-- Swiper -->
     <script src="{{ asset('template') }}/assets/js/settings.js"></script>
     <script src="{{ asset('template') }}/assets/js/custom.js"></script>
+    @include('sweetalert::alert')
 </body>
 </html>

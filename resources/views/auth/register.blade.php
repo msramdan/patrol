@@ -49,7 +49,7 @@
 									</svg>
 								</div>
 							</span>
-							<input type="text" class="form-control" placeholder="Name">
+							<input type="text" class="form-control" placeholder="Name" required autocomplete="off">
 						</div>
 						<div class="mb-3 input-group input-group-icon">
 							<span class="input-group-text">
@@ -60,7 +60,7 @@
 									</svg>
 								</div>
 							</span>
-							<input type="email" class="form-control" placeholder="Email">
+							<input type="email" class="form-control" placeholder="Email" required autocomplete="off">
 						</div>
 						<div class="mb-3 input-group input-group-icon">
 							<span class="input-group-text">
@@ -71,7 +71,7 @@
 									</svg>
 								</div>
 							</span>
-							<input type="password" class="form-control dz-password" placeholder="Password">
+							<input type="password" class="form-control dz-password" placeholder="Password" required>
 							<span class="input-group-text show-pass">
 								<i class="fa fa-eye-slash text-primary"></i>
 								<i class="fa fa-eye text-primary"></i>
@@ -79,6 +79,14 @@
 						</div>
 					</form>
 					<a href="#" class="btn btn-primary btn-block mb-3">DAFTAR</a>
+                    <center>
+                        <span>Atau daftar dengan</span>
+                        <div class="social-box">
+                            <a href="/auth/google">
+                                <img src="{{ asset('template') }}/assets/images/icons/google.png" alt="/">
+                            </a>
+                        </div>
+                    </center>
 					<div class="d-flex align-items-center justify-content-center">
 						<a href="javascript:void(0);" class="text-light text-center d-block">Sudah punya akun ?</a>
 						<a href="{{ route('login') }}" class="btn-link d-block ms-3 text-underline">Masuk di sini</a>
@@ -91,16 +99,12 @@
 
 
 </div>
-<!--**********************************
-    Scripts
-***********************************-->
 <script src="{{ asset('template') }}/assets/js/jquery.js"></script>
 <script src="{{ asset('template') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('template') }}/assets/vendor/swiper/swiper-bundle.min.js"></script><!-- Swiper -->
 <script src="{{ asset('template') }}/assets/js/dz.carousel.js"></script><!-- Swiper -->
 <script src="{{ asset('template') }}/assets/js/settings.js"></script>
 <script src="{{ asset('template') }}/assets/js/custom.js"></script>
+@include('sweetalert::alert')
 </body>
-
-<!-- Mirrored from soziety.dexignzone.com/xhtml/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Aug 2023 02:37:07 GMT -->
 </html>
