@@ -11,15 +11,23 @@
 	<meta name="author" content="DexignZone" />
     <meta name="keywords" content="" />
     <meta name="robots" content="" />
-	<meta name="description" content=""/>
-	<meta property="og:title" content="" />
-	<meta property="og:description" content="" />
+	<meta name="description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )"/>
+	<meta property="og:title" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
+	<meta property="og:description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
 	<meta property="og:image" content="error.html"/>
 	<meta name="format-detection" content="telephone=no">
-	<link rel="shortcut icon" type="image/x-icon" href="{{ asset('template') }}/assets/images/favicon.png" />
-	<title>{{ config('app.name', 'Laravel') }}</title>
+
+    <!-- Favicons Icon -->
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
+
+    <!-- Title -->
+	<title>Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )</title>
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ asset('template') }}/assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('template') }}/assets/css/style.css">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -27,17 +35,22 @@
 </head>
 <body class="gradiant-bg">
 <div class="page-wraper">
+
+    <!-- Preloader -->
 	<div id="preloader">
 		<div class="spinner"></div>
 	</div>
+    <!-- Preloader end-->
+
+    <!-- Welcome Start -->
 	<div class="content-body">
 		<div class="container vh-100">
 			<div class="welcome-area">
-				<div class="bg-image bg-image-overlay" style="background-image: url(template/assets/images/login/pic3.jpg);"></div>
+				<div class="bg-image bg-image-overlay" style="background-image: url(assets/images/login/pic3.jpg);"></div>
 				<div class="join-area">
 					<div class="started">
-						<h1 class="title">Buat Akun Baru</h1>
-						<p>Masukkan data Anda untuk mendaftar ke situs web kami.</p>
+						<h1 class="title">Create an Account</h1>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</p>
 					</div>
 					<form>
 						<div class="mb-3 input-group input-group-icon">
@@ -49,7 +62,7 @@
 									</svg>
 								</div>
 							</span>
-							<input type="text" class="form-control" placeholder="Name" required autocomplete="off">
+							<input type="text" class="form-control" placeholder="Name">
 						</div>
 						<div class="mb-3 input-group input-group-icon">
 							<span class="input-group-text">
@@ -60,7 +73,7 @@
 									</svg>
 								</div>
 							</span>
-							<input type="email" class="form-control" placeholder="Email" required autocomplete="off">
+							<input type="email" class="form-control" placeholder="Email">
 						</div>
 						<div class="mb-3 input-group input-group-icon">
 							<span class="input-group-text">
@@ -71,25 +84,17 @@
 									</svg>
 								</div>
 							</span>
-							<input type="password" class="form-control dz-password" placeholder="Password" required>
+							<input type="password" class="form-control dz-password" placeholder="Password">
 							<span class="input-group-text show-pass">
 								<i class="fa fa-eye-slash text-primary"></i>
 								<i class="fa fa-eye text-primary"></i>
 							</span>
 						</div>
 					</form>
-					<a href="#" class="btn btn-primary btn-block mb-3">DAFTAR</a>
-                    <center>
-                        <span>Atau daftar dengan</span>
-                        <div class="social-box">
-                            <a href="/auth/google">
-                                <img src="{{ asset('template') }}/assets/images/icons/google.png" alt="/">
-                            </a>
-                        </div>
-                    </center>
+					<a href="#" class="btn btn-primary btn-block mb-3">REGISTER</a>
 					<div class="d-flex align-items-center justify-content-center">
-						<a href="javascript:void(0);" class="text-light text-center d-block">Sudah punya akun ?</a>
-						<a href="{{ route('login') }}" class="btn-link d-block ms-3 text-underline">Masuk di sini</a>
+						<a href="javascript:void(0);" class="text-light text-center d-block">Don’t have an account?</a>
+						<a href="{{ route('login') }}" class="btn-link d-block ms-3 text-underline">Signin here</a>
 					</div>
 				</div>
 			</div>
@@ -99,12 +104,16 @@
 
 
 </div>
+<!--**********************************
+    Scripts
+***********************************-->
 <script src="{{ asset('template') }}/assets/js/jquery.js"></script>
 <script src="{{ asset('template') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="{{ asset('template') }}/assets/vendor/swiper/swiper-bundle.min.js"></script><!-- Swiper -->
 <script src="{{ asset('template') }}/assets/js/dz.carousel.js"></script><!-- Swiper -->
 <script src="{{ asset('template') }}/assets/js/settings.js"></script>
 <script src="{{ asset('template') }}/assets/js/custom.js"></script>
-@include('sweetalert::alert')
 </body>
+
+<!-- Mirrored from soziety.dexignzone.com/xhtml/register.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Aug 2023 02:37:07 GMT -->
 </html>

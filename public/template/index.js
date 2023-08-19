@@ -1,7 +1,7 @@
 // Register Service worker to control making site work offline
 if ('serviceWorker' in navigator) {
 	navigator.serviceWorker
-	.register('app.js')
+	.register('template/app.js')
 	.then(() => { console.log('Service Worker Registered'); });
 }
 
@@ -15,13 +15,13 @@ var PwaValue = getCookie(PwaKey);
 
 /* for ios start */
 function isThisDeviceRunningiOS(){
-  if (['iPad Simulator', 'iPhone Simulator','iPod Simulator', 'iPad','iPhone','iPod','ios'].includes(navigator.platform) || navigator.userAgent.indexOf('Mac OS X') != -1){ 
+  if (['iPad Simulator', 'iPhone Simulator','iPod Simulator', 'iPad','iPhone','iPod','ios'].includes(navigator.platform) || navigator.userAgent.indexOf('Mac OS X') != -1){
 	installText.innerHTML = 'Install Soziety social network mobile app template to your home screen for easy access click to safari share option "Add to Home Screen".';
 	pwaBtn.remove();
 	return true;
-  }	
+  }
 }
-isThisDeviceRunningiOS();	
+isThisDeviceRunningiOS();
 /* for ios start */
 
 
