@@ -25,6 +25,7 @@ class User extends Authenticatable
         'address',
         'photo',
         'is_active',
+        'level_user',
     ];
 
     /**

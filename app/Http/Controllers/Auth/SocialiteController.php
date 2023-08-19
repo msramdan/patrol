@@ -55,7 +55,8 @@ class SocialiteController extends Controller
                 // Create user baru
                 $user = User::create([
                     'name'  => $socialUser->getName(),
-                    'email' => $socialUser->getEmail()
+                    'email' => $socialUser->getEmail(),
+                    'level_user' => 2
                 ]);
             }
 

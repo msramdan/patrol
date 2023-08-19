@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         // dd(FacadesAuth::user()->address);
-        $users = User::where('leve_user', 2)->get();
+        $users = User::where('level_user', 2)->get();
         $reports = Report::leftJoin('users', 'reports.user_id', '=', 'users.id')
             ->select(
                 'reports.*',

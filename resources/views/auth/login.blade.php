@@ -40,7 +40,8 @@
                             <h1 class="title">Masuk Aplikasi</h1>
                             <p>Silahkan login untuk masuk kedalam aplikasi.</p>
                         </div>
-                        <form>
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
                             <div class="mb-3 input-group input-group-icon">
                                 <span class="input-group-text">
                                     <div class="input-icon">
@@ -56,7 +57,12 @@
                                         </svg>
                                     </div>
                                 </span>
-                                <input type="text" class="form-control" placeholder="Email" required autocomplete="off">
+                                <input type="text" autofocus class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}" id="email" name="email" required autocomplete="off">
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                             <div class="mb-3 input-group input-group-icon">
                                 <span class="input-group-text">
@@ -71,14 +77,22 @@
                                         </svg>
                                     </div>
                                 </span>
-                                <input type="password" class="form-control dz-password" placeholder="Password" required>
+                                <input type="password" id="password" class="form-control dz-password @error('password') is-invalid @enderror" placeholder="Password" required name="password" required autocomplete="current-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                                 <span class="input-group-text show-pass">
                                     <i class="fa fa-eye-slash text-primary"></i>
                                     <i class="fa fa-eye text-primary"></i>
                                 </span>
                             </div>
+                            <button type="submit" class="btn btn-primary btn-block mb-3">
+                                {{ __('MASUK') }}
+                            </button>
                         </form>
-                        <a href="#" class="btn btn-primary btn-block mb-3">MASUK</a>
+
                         <center>
                             <span>Atau masuk dengan</span>
                             <div class="social-box">
