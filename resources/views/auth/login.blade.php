@@ -25,7 +25,6 @@
         rel="stylesheet">
 
 </head>
-
 <body class="gradiant-bg">
     <div class="page-wraper">
         <div id="preloader">
@@ -83,7 +82,7 @@
                         <center>
                             <span>Atau masuk dengan</span>
                             <div class="social-box">
-                                <a href="/auth/google">
+                                <a href="{{ route('auth',['provider'=>'google']) }} ">
                                     <img src="{{ asset('template') }}/assets/images/icons/google.png" alt="/">
                                 </a>
                             </div>

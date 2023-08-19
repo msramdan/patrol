@@ -19,10 +19,10 @@
                     d="M8 7.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 1 0 0 7.5zm7.5 9v1.5c-.002.199-.079.39-.217.532C13.61 20.455 8.57 20.5 8 20.5s-5.61-.045-7.282-1.718C.579 18.64.501 18.449.5 18.25v-1.5a7.5 7.5 0 1 1 15 0z" />
             </svg>
         </a>
-        <a href="{{ route('post') }}" class="nav-link add-post">
+        <a href="{{ route('report') }}" class="nav-link add-post">
             <i class="fa-solid fa-plus"></i>
         </a>
-        <a href="{{ route('job') }}" class="nav-link {{ $thiRute == 'job' ? 'active' : '' }}">
+        <a href="{{ route('suggestion') }}" class="nav-link {{ $thiRute == 'job' ? 'active' : '' }}">
             <svg fill="#B5B5B5" height="24" width="24" version="1.1" id="Layer_1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
                 xml:space="preserve">

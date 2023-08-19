@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
+use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class HomeController extends Controller
 {
@@ -24,7 +27,21 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // dd(Auth::user()->is_active);
-        return view('home');
+        // dd(FacadesAuth::user()->address);
+        $users = User::where('leve_user', 2)->get();
+        $reports = Report::leftJoin('users', 'reports.user_id', '=', 'users.id')
+            ->select(
+                'reports.*',
+                'users.name as user_name',
+                'users.photo as user_photo',
+            )
+            ->latest()
+            ->simplePaginate(10);
+        $data = [
+            'users' => $users,
+            'reports' => $reports,
+        ];
+
+        return view('home', $data);
     }
 }
