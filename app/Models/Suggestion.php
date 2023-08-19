@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Report extends Model
+class Suggestion extends Model
 {
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'no_laporan',
         'judul',
         'deskripsi',
-        'tanggal',
-        'phone',
-        'status_laporan',
-        'photo',
     ];
 }

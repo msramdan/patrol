@@ -22,7 +22,7 @@
 	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
     
     <!-- Title -->
-	<title>Profile</title>
+	<title>Masukan & Saran</title>
 	
     <!-- Stylesheets -->
 	<!-- Stylesheets -->
@@ -55,7 +55,7 @@
 					<a href="{{ route('home') }}" class="text-black">
 						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
 					</a>
-					<h4 class="title mb-0">Edit profile</h4>
+					<h4 class="title mb-0">Masukan & Saran</h4>
 				</div>
 				<div class="mid-content">
 				</div>
@@ -71,51 +71,22 @@
 	
     <!-- Page Content -->
     <div class="page-content">
-        <form action="{{ route('profile.save') }}" method="post" enctype="multipart/form-data" id="form">
+        <form action="{{ route('suggestion.save') }}" method="post" enctype="multipart/form-data" id="form">
             @csrf
             <div class="container">
                 <div class="edit-profile">
-                    <div class="profile-image">
-                        <div class="media media-100 rounded-circle">
-                            
-                            @if (empty($user->photo))
-                                <img src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg" alt="{{ $user->name }}">	
-                            @else
-                                
-                                <img src="{{ asset('storage/profiles/'.$user->photo) }}" alt="{{ $user->name }}">	
-                            @endif
-                        </div>
-                        <label for=""> ubah foto Profile</label>
-                        <div>
-                            @error('photo')
-                                <div class="alert text-danger mb-0">{{ $message }}</div>
-                             @enderror
-                            <input type="file" name="photo">
-                        </div>
-                    </div>
-                        @error('name')
+                    
+                        @error('judul')
                             <div class="alert text-danger mb-0">{{ $message }}</div>
                         @enderror
                         <div class="mb-3 input-group input-mini">
-                            <input name="name" type="text" class="form-control" placeholder="Nama" value="{{ $user->name }}">
+                            <input name="judul" type="text" class="form-control" placeholder="Judul" value="{{ old('judul') }}">
                         </div>
-                        @error('password')
+                        @error('deskripsi')
                             <div class="alert text-danger mb-0">{{ $message }}</div>
                         @enderror
                         <div class="mb-3 input-group input-mini">
-                            <input name="password" type="password" class="form-control" placeholder="Password">
-                        </div>
-                        @error('phone')
-                            <div class="alert text-danger mb-0">{{ $message }}</div>
-                        @enderror
-                        <div class="mb-3 input-group input-mini">
-                            <input name="phone" type="number" class="form-control" placeholder="Nomor Handphone" value="{{ $user->phone }}">
-                        </div>
-                        @error('address')
-                            <div class="alert text-danger mb-0">{{ $message }}</div>
-                        @enderror
-                        <div class="mb-3 input-group input-mini">
-                            <input name="address" type="text" class="form-control" placeholder="Alamat" value="{{ $user->address }}">
+                            <textarea id="" cols="30" rows="10"  class="form-control" name="deskripsi" placeholder="Deskripsi">{{ old('deskripsi') }}</textarea>
                         </div>
                         <button type="submit" style="display: none"></button>
                 </div>
