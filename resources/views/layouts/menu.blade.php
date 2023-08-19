@@ -22,7 +22,7 @@
         <a href="{{ route('report') }}" class="nav-link add-post">
             <i class="fa-solid fa-plus"></i>
         </a>
-        <a href="{{ route('job') }}" class="nav-link {{ $thiRute == 'job' ? 'active' : '' }}">
+        <a href="{{ route('suggestion') }}" class="nav-link {{ $thiRute == 'job' ? 'active' : '' }}">
             <svg fill="#B5B5B5" height="24" width="24" version="1.1" id="Layer_1"
                 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
                 xml:space="preserve">
