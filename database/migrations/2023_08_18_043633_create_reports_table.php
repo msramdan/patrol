@@ -20,7 +20,7 @@ return new class extends Migration
             $table->datetime('tanggal');
             $table->string('phone');
             $table->string('photo')->nullable();
-            $table->string('status_laporan');
+            $table->enum('status_laporan', ['request', 'accept'])->default('request');
             $table->timestamps();
         });
     }
