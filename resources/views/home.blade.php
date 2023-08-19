@@ -16,7 +16,7 @@
                                     @if (empty($user->photo))
                                         <img src=" {{ asset('template') }}/assets/images/stories/small/pic4.jpg" alt="/">
                                     @else
-                                        <img src="{{ asset('storage/img/'.$user->photo) }}" alt="/">
+                                        <img src="{{ asset('storage/profiles/'.$user->photo) }}" alt="/">
                                     @endif
                                 </div>
                                 <span class="detail text-container" style="width: 1rem;">{{ $user->name }}</span>
@@ -39,8 +39,7 @@
                             @if (empty($report->user_photo))
                                 <img class="rounded" src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg" alt="/">
                             @else
-                            {{-- SEMENTARA --}}
-                                <img class="rounded" src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg" alt="/">
+                                <img class="rounded" src="{{ asset('storage/profiles/'.$report->user_photo) }}" alt="/">
                             @endif
                         </a>
                         <div class="meta-content ms-3">
