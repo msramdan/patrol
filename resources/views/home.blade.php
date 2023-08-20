@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .detail.text-container {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+</style>
+
 <div class="content-inner pt-0">
     <div class="container p-b50">
         
@@ -19,7 +29,7 @@
                                         <img src="{{ asset('storage/profiles/'.$user->photo) }}" alt="/">
                                     @endif
                                 </div>
-                                <span class="detail text-container" style="width: 1rem;">{{ $user->name }}</span>
+                                <span class="detail text-container">{{ substr(explode(' ', $user->name)[0], 0, 8)   }}</span>
                             </a>
                         </div>
                         @endforeach
