@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class HomeController extends Controller
 {
@@ -27,7 +28,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // dd(FacadesAuth::user()->address);
         $users = User::where('level_user', 2)->get();
         $reports = Report::leftJoin('users', 'reports.user_id', '=', 'users.id')
             ->select(
