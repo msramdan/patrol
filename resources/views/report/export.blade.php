@@ -30,7 +30,15 @@
                     <td>{{ $item->no_laporan }}</td>
                     <td>{{ $item->phone }}</td>
                     <td>{{ Carbon::parse($item->tanggal)->format('d M Y') }}</td>
-                    <td><img src="{{ asset('storage/photos/'.$item->photo) }}"></td>
+                    {{-- <td><img src="{{ asset('storage/photos/'.$item->photo) }}"></td> --}}
+                    <td>
+                        <?php
+                            $imagePath = public_path('storage/photos/'.$item->photo);
+                            $imageData = file_get_contents($imagePath);
+                            $base64Image = base64_encode($imageData);
+                        ?>
+                        <img src="data:image/jpeg;base64,{{ $base64Image }}" alt="Gambar">
+                    </td>
                 </tr>    
 
             @endforeach
