@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Symfony\Component\VarDumper\Cloner\Data;
 
 class HomeController extends Controller
 {

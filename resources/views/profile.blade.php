@@ -9,44 +9,44 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
 	<meta name="theme-color" content="#2196f3">
-	<meta name="author" content="DexignZone" /> 
-    <meta name="keywords" content="" /> 
-    <meta name="robots" content="" /> 
+	<meta name="author" content="DexignZone" />
+    <meta name="keywords" content="" />
+    <meta name="robots" content="" />
 	<meta name="description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )"/>
 	<meta property="og:title" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
 	<meta property="og:description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
 	<meta property="og:image" content="error.html"/>
 	<meta name="format-detection" content="telephone=no">
-	
+
 	<!-- Favicons Icon -->
 	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
-    
+
     <!-- Title -->
 	<title>Profile</title>
-	
+
     <!-- Stylesheets -->
 	<!-- Stylesheets -->
     <link href="{{ asset('template') }}/assets/vendor/lightgallery/dist/css/lightgallery.css" rel="stylesheet">
     <link href="{{ asset('template') }}/assets/vendor/lightgallery/dist/css/lg-thumbnail.css" rel="stylesheet">
-    <link href="{{ asset('template') }}/assets/vendor/lightgallery/dist/css/lg-zoom.css" rel="stylesheet">	
+    <link href="{{ asset('template') }}/assets/vendor/lightgallery/dist/css/lg-zoom.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('template') }}/assets/css/style.css">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-</head>    
-</head>   
+</head>
+</head>
 <body>
 <div class="page-wraper header-fixed">
-    
+
     <!-- Preloader -->
     <div id="preloader">
         <div class="spinner"></div>
     </div>
     <!-- Preloader end-->
-    
+
 	<!-- Header -->
 	<header class="header bg-white">
 		<div class="container">
@@ -60,7 +60,7 @@
 				<div class="mid-content">
 				</div>
 				<div class="right-content">
-					<a href="#" class="text-dark font-20" id="submit">						
+					<a href="#" class="text-dark font-20" id="submit">
 						<i class="fa-solid fa-check"></i>
 					</a>
 				</div>
@@ -68,7 +68,7 @@
 		</div>
 	</header>
     <!-- Header End -->
-	
+
     <!-- Page Content -->
     <div class="page-content">
         <form action="{{ route('profile.save') }}" method="post" enctype="multipart/form-data" id="form">
@@ -77,15 +77,15 @@
                 <div class="edit-profile">
                     <div class="profile-image">
                         <div class="media media-100 rounded-circle">
-                            
+
                             @if (empty($user->photo))
-                                <img src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg" alt="{{ $user->name }}">	
+                                <img src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg" alt="{{ $user->name }}">
                             @else
-                                
-                                <img src="{{ asset('storage/profiles/'.$user->photo) }}" alt="{{ $user->name }}">	
+
+                                <img src="{{ asset('storage/profiles/'.$user->photo) }}" alt="{{ $user->name }}">
                             @endif
                         </div>
-                        <label for=""> ubah foto Profile</label>
+                        {{-- <label for=""> ubah foto Profile</label> --}}
                         <div>
                             @error('photo')
                                 <div class="alert text-danger mb-0">{{ $message }}</div>
@@ -123,7 +123,7 @@
         </form>
     </div>
     <!-- Page Content End-->
-</div> 
+</div>
 <!--**********************************
     Scripts
 ***********************************-->
@@ -137,7 +137,7 @@
 @include('sweetalert::alert')
 <script>
     $(document).ready(function () {
-        $('#submit').click(function (e) { 
+        $('#submit').click(function (e) {
             $('#form').submit();
         });
     });

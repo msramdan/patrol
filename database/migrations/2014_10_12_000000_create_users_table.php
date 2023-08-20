@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->string('phone')->nullable();
             $table->longText('address')->nullable();
-            $table->integer('leve_user')->nullable();
+            $table->integer('level_user')->nullable();
             $table->string('photo')->nullable();
             $table->boolean('is_active')->default(false);
             $table->rememberToken();

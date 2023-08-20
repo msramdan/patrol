@@ -34,7 +34,7 @@ class SuggestionController extends Controller
             'deskripsi' => $request->deskripsi
         ]);
 
-        Alert::toast('Terimaksih Saran anda telah di terima');
+        Alert::toast('Terimaksih Saran anda telah di terima','success');
         return redirect()->route('home');
     }
 }

@@ -61,11 +61,8 @@ class ProfileController extends Controller
             $photo->storeAs('public/profiles', $photoName);
             $data['photo'] = $photoName;
         }
-
-
-
         User::where('id', Auth::user()->id)->update($data);
-        Alert::toast('Profile berhasil di rubah');
+        Alert::toast('Profile berhasil di rubah','success');
         return back();
     }
 
