@@ -1,10 +1,10 @@
 <div class="sidebar">
     <div class="author-box">
         <div class="dz-media">
-            @if (empty(Illuminate\Support\Facades\Auth::user()->photo))
+            @if (empty(dataUser()->photo))
                  <img src="{{ asset('template/assets/images/stories/small/pic1.jpg') }}" alt="author-image">
             @else
-                 <img src="{{ asset('storage/profiles/'. Illuminate\Support\Facades\Auth::user()->photo ) }}" alt="author-image">
+                 <img src="{{ asset('storage/profiles/'. dataUser()->photo ) }}" alt="author-image">
             @endif
 
         </div>
@@ -14,7 +14,7 @@
         </div>
     </div>
     <ul class="nav navbar-nav">
-        <li><a class="nav-link" href="pages.html">
+        <li><a class="nav-link" href="{{ route('admin.report') }}">
                 <span class="dz-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
                         <path d="M12.6 18.06c-.36.28-.87.28-1.23 0l-6.15-4.78c-.36-.28-.86-.28-1.22 0-.51.4-.51 1.17 0 1.57l6.76 5.26c.72.56 1.73.56 2.46 0l6.76-5.26c.51-.4.51-1.17 0-1.57l-.01-.01c-.36-.28-.86-.28-1.22 0l-6.15 4.79zm.63-3.02l6.76-5.26c.51-.4.51-1.18 0-1.58l-6.76-5.26c-.72-.56-1.73-.56-2.46 0L4.01 8.21c-.51.4-.51 1.18 0 1.58l6.76 5.26c.72.56 1.74.56 2.46-.01z" />
@@ -30,7 +30,7 @@
                 </span>
                 <span>Jadwal Patroli</span>
             </a></li>
-        <li><a class="nav-link" href="profile.html">
+        <li><a class="nav-link" href="{{ route('admin.users') }}">
                 <span class="dz-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v1c0 .55.45 1 1 1h14c.55 0 1-.45 1-1v-1c0-2.66-5.33-4-8-4z" />
