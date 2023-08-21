@@ -3,8 +3,8 @@
 @section('content')
     <div class="content-inner pt-0">
         <div class="container p-b50">
-            <table class="table" id="table">
-                <thead class="thead-dark">
+            <table class="table table-striped" id="table">
+                <thead style="color: gray;" >
                     <tr>
                         <th scope="col">Nama</th>
                         <th scope="col">Email</th>
@@ -16,7 +16,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                 </tbody>
             </table>
 
@@ -92,7 +92,7 @@
                             <div class="input-group mb-3 input-radius">
                                 <textarea name="address" class="form-control" placeholder="Alamat" rows="4">{{ old('address') }}</textarea>
                             </div>
-                           
+
                             <button class="btn btn-primary mt-3 btn-block">Submit</button>
                         </form>
                     </div>
@@ -126,6 +126,7 @@
         ajax: "{{ route('users.get') }}",
         processing: true,
         serverSide: true,
+        lengthChange: false,
         columns :[
             {
                 data :'name',
@@ -136,8 +137,8 @@
             {
                 data :'phone',
             },
-            
-            { 
+
+            {
                 data: null,
                 orderable: false,
                 render: function(data, type, row) {
@@ -176,25 +177,25 @@
                 render: function(data, type, row) {
                     var element = `
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary btn-sm edit-button mx-1" data-id="${data.id}" data-bs-toggle="modal" data-bs-target="#edit-modal" >Edit</button>
-                            <button class="btn btn-danger btn-sm delete-button mx-1" data-id="${data.id}">Delete</button>
+                            <button class="btn btn-primary btn-sm edit-button mx-1" data-id="${data.id}" data-bs-toggle="modal" data-bs-target="#edit-modal" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button class="btn btn-danger btn-sm delete-button mx-1" data-id="${data.id}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </div>
                     `;
                     return element;
                 }
             },
-           
+
          ],
 
 
         'drawCallback': function() {
-                    edit(); 
+                    edit();
                     deleteData()
-                    
+
                 }
        });
        function edit(){
-            $('.edit-button').click(function (e) { 
+            $('.edit-button').click(function (e) {
                 var id = $(this).attr('data-id');
                 $.ajax({
                     url: '{{ route("admin.users.detail") }}',
@@ -218,8 +219,8 @@
                         text: 'Something went wrong!',
                     })
                 })
-                
-                
+
+
             });
 
        }
@@ -244,7 +245,7 @@
 
         })
        }
-       
+
 
     });
 </script>

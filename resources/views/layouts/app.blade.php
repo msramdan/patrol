@@ -17,13 +17,11 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
-        integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js">
     </script>
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @php
         use Illuminate\Support\Facades\Auth;
-        
     @endphp
 
 
@@ -62,7 +60,7 @@
             </div>
         </header>
         <div class="dark-overlay"></div>
-       
+
         {{-- Sidebar --}}
         @include('layouts.sidebar')
 
