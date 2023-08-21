@@ -145,6 +145,7 @@
 
             processing: true,
             serverSide: true,
+            lengthChange: false,
             columns: [{
                     data: 'no_laporan',
                 },
@@ -166,8 +167,8 @@
                     render: function(data, type, row) {
                         var element = `
                         <div class="d-flex justify-content-center">
-                            <button class="btn btn-primary btn-sm edit-button mx-1" data-id="${data.id}" data-bs-toggle="modal" data-bs-target="#edit-modal" >Edit</button>
-                            <button class="btn btn-danger btn-sm delete-button mx-1" data-id="${data.id}">Delete</button>
+                            <button class="btn btn-primary btn-sm edit-button mx-1" data-id="${data.id}" data-bs-toggle="modal" data-bs-target="#edit-modal" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
+                            <button class="btn btn-danger btn-sm delete-button mx-1" data-id="${data.id}"><i class="fa fa-trash" aria-hidden="true"></i></button>
                         </div>
                     `;
                         return element;
