@@ -250,7 +250,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href =
-                                '{{ route('admin.report.delete', ['id' => '']) }}' + id;
+                                "{{ route('admin.users.delete', ['id' => '']) }}" + id;
                         }
                     })
 

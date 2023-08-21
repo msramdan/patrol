@@ -17,7 +17,10 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('users.index');
+        $data = [
+            'title' => 'Users',
+        ];
+        return view('users.index', $data);
     }
 
     public function getData()
@@ -122,8 +125,10 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(Request $request)
     {
-        //
+        User::where('id', $request->id)->delete();
+        Alert::success('Success', 'data berhasil di hapus');
+        return back();
     }
 }

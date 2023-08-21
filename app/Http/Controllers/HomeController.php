@@ -41,6 +41,7 @@ class HomeController extends Controller
         $data = [
             'users' => $users,
             'reports' => $reports,
+            'title' => 'Home',
         ];
 
         return view('home', $data);
