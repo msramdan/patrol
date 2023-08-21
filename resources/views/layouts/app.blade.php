@@ -23,7 +23,7 @@
     @php
         use Illuminate\Support\Facades\Auth;
     @endphp
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 
@@ -37,7 +37,7 @@
             <div class="container">
                 <div class="main-bar">
                     <div class="left-content">
-                        <h4 class="title mb-0">Home</h4>
+                        <h4 class="title mb-0">{{ empty($title)?'':$title }}</h4>
                     </div>
                     <div class="mid-content">
                     </div>
