@@ -65,4 +65,20 @@ class ProfileController extends Controller
         Alert::toast('Profile berhasil di rubah','success');
         return back();
     }
+
+    public function detail($id)
+    {
+        $id = decrypt($id);
+        $user = User::where('id', $id)->first();
+        if (empty($user)) {
+            return back();
+        }
+
+        $data = [
+            'user' => $user,
+        ];
+
+
+        return view('profiledetail', $data);
+    }
 }
