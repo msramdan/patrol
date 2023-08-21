@@ -33,6 +33,7 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::get('/detail/{id}', [App\Http\Controllers\ProfileController::class, 'detail'])->name('profile.detail');
         Route::get('/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
     });
+
     Route::prefix('suggestion')->group(function () {
         Route::get('/', [App\Http\Controllers\SuggestionController::class, 'index'])->name('suggestion');
         Route::post('/save', [App\Http\Controllers\SuggestionController::class, 'store'])->name('suggestion.save');
@@ -52,6 +53,15 @@ Route::middleware(['auth', 'web'])->group(function () {
             Route::get('/delete', [App\Http\Controllers\Admin\ReportController::class, 'delete'])->name('admin.report.delete');
             Route::post('/edit', [App\Http\Controllers\Admin\ReportController::class, 'edit'])->name('admin.report.edit');
             Route::get('/export', [App\Http\Controllers\Admin\ReportController::class, 'export'])->name('admin.report.export');
+        });
+        Route::prefix('patrol')->group(function () {
+            Route::get('/', [App\Http\Controllers\Admin\PatrolController::class, 'index'])->name('admin.patrol');
+            Route::post('/add', [App\Http\Controllers\Admin\PatrolController::class, 'add'])->name('admin.patrol.add');
+            Route::get('/get', [App\Http\Controllers\Admin\PatrolController::class, 'getData'])->name('admin.patrol.get');
+            Route::post('/detail', [App\Http\Controllers\Admin\PatrolController::class, 'detail'])->name('admin.patrol.detail');
+            Route::get('/delete', [App\Http\Controllers\Admin\PatrolController::class, 'delete'])->name('admin.patrol.delete');
+            Route::post('/edit', [App\Http\Controllers\Admin\PatrolController::class, 'edit'])->name('admin.patrol.edit');
+            Route::get('/export', [App\Http\Controllers\Admin\PatrolController::class, 'export'])->name('admin.patrol.export');
         });
 
         Route::prefix('users')->group(function () {
