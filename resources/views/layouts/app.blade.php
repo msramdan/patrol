@@ -8,18 +8,18 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet"
-        href="{{ asset('template') }}/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css">
+    <link rel="stylesheet" href="{{ asset('template') }}/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.css">
     <link rel="stylesheet" href="{{ asset('template') }}/assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" type="text/css" href="{{ asset('template') }}/assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
         rel="stylesheet">
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js">
     </script>
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     @php
         use Illuminate\Support\Facades\Auth;
     @endphp
@@ -303,18 +303,21 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('template') }}/assets/js/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="{{ asset('template') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('template') }}/assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="{{ asset('template') }}/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js">
-    </script>
+    <script src="{{ asset('template') }}/assets/vendor/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
     <script src="{{ asset('template') }}/assets/js/dz.carousel.js"></script>
     <script src="{{ asset('template') }}/assets/js/settings.js"></script>
     <script src="{{ asset('template') }}/assets/js/custom.js"></script>
     <script src="{{ asset('template') }}/index.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+
     <script>
         $(".stepper").TouchSpin();
     </script>
+
+    @stack('js')
     @include('sweetalert::alert')
 </body>
 

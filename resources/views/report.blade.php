@@ -34,7 +34,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 </head>
 
@@ -76,17 +75,17 @@
         <div class="page-content">
             <div class="container">
                 <div class="edit-profile">
-                    
+
                     <form action="{{ route('report.save') }}" method="post" enctype="multipart/form-data" id="form">
                         @csrf
-                        
+
                         @error('judul')
                             <div class="alert text-danger mb-0">{{ $message }}</div>
                         @enderror
                         <div class="mb-3 input-group input-mini">
                             <input name="judul" type="text" value="{{ old('judul') }}" class="form-control" placeholder="Judul Laporan">
                         </div>
-                    
+
                         @error('phone')
                             <div class="alert text-danger">{{ $message }}</div>
                         @enderror
@@ -99,17 +98,17 @@
                         <div class="mb-3 input-group input-mini">
                             <input name="photo" type="file" class="form-control" >
                         </div>
-                    
+
                         <div class="mb-3 input-group input-mini">
                             @error('deskripsi')
                                 <div class="alert text-danger">{{ $message }}</div>
                             @enderror
                             <textarea name="deskripsi" id="" cols="30" rows="10" class="form-control" placeholder="Deskripsi">{{ old('deskripsi') }}</textarea>
                         </div>
-                    
+
                         <button style="display: none" type="submit" class="btn btn-primary">Submit</button>
                     </form>
-                    
+
                 </div>
             </div>
         </div>
@@ -128,7 +127,7 @@
 
     <script>
         $(document).ready(function () {
-            $('#submit').click(function (e) { 
+            $('#submit').click(function (e) {
                 $('#form').submit();
             });
         });
