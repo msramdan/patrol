@@ -30,7 +30,7 @@
         <div class="contant-section">
             <a href="{{ route('logout') }}"onclick="event.preventDefault();
         document.getElementById('logout-form').submit();"
-                class="btn btn-danger w-100">Logout</a>
+                class="btn btn-danger w-100"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                 @csrf
             </form>
