@@ -43,9 +43,7 @@
                         <button type="button" class="btn btn-primary w-40" id="filter" style="float: left; margin-right:5px"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
                         <button type="button" class="btn btn-danger w-40" id="export"><i class="fa fa-file-pdf" aria-hidden="true"></i> Export</button>
                     </div>
-                    {{-- <div class="col-md-2">
-
-                    </div> --}}
+                    
                 </div>
 
 
@@ -87,7 +85,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('admin.report.edit') }}" method="post" enctype="multipart/form-data"
+                    <form action="{{ route('report.edit') }}" method="post" enctype="multipart/form-data"
                         id="edit-form">
                         @csrf
                         <input type="hidden" name="id" value="{{ old('id') }}">
@@ -114,17 +112,7 @@
                             <input name="photo" type="file" class="form-control">
                         </div>
 
-                        @error('status_laporan')
-                            <div class="alert text-danger mb-0">{{ $message }}</div>
-                        @enderror
-                        <div class="mb-3 input-group input-radius">
-                            <select class="form-select " name="status_laporan">
-                                <option value="request" {{ old('status_laporan') == 'request' ? 'selected' : '' }}>request
-                                </option>
-                                <option value="accept" {{ old('status_laporan') == 'accept' ? 'selected' : '' }}>accept
-                                </option>
-                            </select>
-                        </div>
+                        
 
                         @error('deskripsi')
                             <div class="alert text-danger mb-0">{{ $message }}</div>
@@ -142,7 +130,6 @@
             </div>
         </div>
     </div>
-
 
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
@@ -165,7 +152,7 @@
 
             var dataTable = new DataTable('#table', {
                 ajax: {
-                    url: "{{ route('admin.report.get') }}",
+                    url: "{{ route('report.get') }}",
                     data: function(data) {
                         data.start_date = $('#start_date').val();
                         data.end_date = $('#end_date').val();
@@ -238,7 +225,7 @@
                 $('.edit-button').click(function(e) {
                     var id = $(this).attr('data-id');
                     $.ajax({
-                            url: '{{ route('admin.report.detail') }}',
+                            url: '{{ route('report.detail') }}',
                             type: 'POST',
                             dataType: 'json',
                             data: {
@@ -249,7 +236,6 @@
                             $('#edit-form [name="judul"]').val(data.judul)
                             $('#edit-form [name="phone"]').val(data.phone)
                             $('#edit-form [name="deskripsi"]').val(data.deskripsi)
-                            $('#edit-form [name="status_laporan"]').val(data.status_laporan)
                             $('#edit-form [name="id"]').val(data.id)
                         })
                         .fail(function() {
@@ -280,7 +266,7 @@
                     }).then((result) => {
                         if (result.isConfirmed) {
                             window.location.href =
-                                '{{ route('admin.report.delete', ['id' => '']) }}' + id;
+                                '{{ route('report.delete', ['id' => '']) }}' + id;
                         }
                     })
 
