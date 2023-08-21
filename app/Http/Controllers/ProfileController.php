@@ -16,8 +16,15 @@ class ProfileController extends Controller
         $data = [
             'user' => Auth::user(),
         ];
+        return view('profile.index', $data);
+    }
+    public function edit()
+    {
+        $data = [
+            'user' => Auth::user(),
+        ];
 
-        return view('profile', $data);
+        return view('profile.edit', $data);
     }
     public function store(Request $request)
     {
@@ -62,7 +69,7 @@ class ProfileController extends Controller
             $data['photo'] = $photoName;
         }
         User::where('id', Auth::user()->id)->update($data);
-        Alert::toast('Profile berhasil di rubah','success');
+        Alert::toast('Profile berhasil di rubah', 'success');
         return back();
     }
 

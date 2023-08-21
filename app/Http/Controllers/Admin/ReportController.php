@@ -10,7 +10,6 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use PDF;
 
 class ReportController extends Controller
@@ -53,7 +52,6 @@ class ReportController extends Controller
 
         return $pdf->download($start . '-' . $end . '.pdf');
     }
-
 
     public function detail(Request $request)
     {

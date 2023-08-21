@@ -20,11 +20,18 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::prefix('report')->group(function () {
         Route::get('/', [App\Http\Controllers\Resport::class, 'index'])->name('report');
         Route::post('/save', [App\Http\Controllers\Resport::class, 'store'])->name('report.save');
+        Route::get('/user', [App\Http\Controllers\Resport::class, 'user'])->name('report.user');
+        Route::get('/get', [App\Http\Controllers\Resport::class, 'getData'])->name('report.get');
+        Route::post('/detail', [App\Http\Controllers\Resport::class, 'detail'])->name('report.detail');
+        Route::post('/edit', [App\Http\Controllers\Resport::class, 'edit'])->name('report.edit');
+        Route::post('/delete', [App\Http\Controllers\Resport::class, 'delete'])->name('report.delete');
+        Route::get('/export', [App\Http\Controllers\Resport::class, 'export'])->name('report.export');
     });
     Route::prefix('profile')->group(function () {
         Route::get('/', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
         Route::post('/save', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile.save');
         Route::get('/detail/{id}', [App\Http\Controllers\ProfileController::class, 'detail'])->name('profile.detail');
+        Route::get('/edit', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
     });
     Route::prefix('suggestion')->group(function () {
         Route::get('/', [App\Http\Controllers\SuggestionController::class, 'index'])->name('suggestion');

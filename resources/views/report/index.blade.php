@@ -57,6 +57,7 @@
                             <th scope="col">Tanggal</th>
                             <th scope="col">Phone</th>
                             <th scope="col">Status</th>
+                            <th scope="col">Gambar</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -189,6 +190,13 @@
                     },
                     {
                         data: 'status_laporan',
+                    },
+                    {
+                        data: null,
+                        render: function(data, type, row) {
+                            var element = `<a target="_blank" href="{{ asset('storage/photos') }}/${data.photo}">Lihat Gambar</a>`;
+                            return element;
+                        }
                     },
                     {
                         data: null,
