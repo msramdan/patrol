@@ -69,7 +69,7 @@ class Resport extends Controller
             'photo' => $photoName, // Menyimpan nama foto
             'deskripsi' => $request->deskripsi,
         ]);
-        Alert::toast('Laporan berhasil di buat');
+        toast('Laporan berhasil di buat','success');
         return redirect()->route('home');
     }
 }
