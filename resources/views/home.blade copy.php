@@ -56,11 +56,10 @@
                             <h6 class="title mb-0"><a href="user-profile.html">{{ $report->user_name }}</a></h6>
                             <ul class="meta-list">
                                 <li>
-                                    @if ($report->status_laporan == 'request')
                                     <i class="fa fa-uncheck" aria-hidden="true"></i>
-                                    Belum di proses
+                                    @if ($report->status_laporan == 'request')
+                                        Belum di proses
                                     @else
-                                    <i class="fa fa-check" aria-hidden="true"></i>
                                         Sudah di proses
                                     @endif
                                 </li>

@@ -24,10 +24,35 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::prefix('profile')->group(function () {
         Route::get('/', [App\Http\Controllers\ProfileController::class, 'index'])->name('profile');
         Route::post('/save', [App\Http\Controllers\ProfileController::class, 'store'])->name('profile.save');
+        Route::get('/detail/{id}', [App\Http\Controllers\ProfileController::class, 'detail'])->name('profile.detail');
     });
     Route::prefix('suggestion')->group(function () {
         Route::get('/', [App\Http\Controllers\SuggestionController::class, 'index'])->name('suggestion');
         Route::post('/save', [App\Http\Controllers\SuggestionController::class, 'store'])->name('suggestion.save');
     });
-    Route::resource('users', UserController::class);
+    Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users');
+    Route::get('/get', [App\Http\Controllers\UserController::class, 'getData'])->name('users.get');
+    Route::get('/detail', [App\Http\Controllers\UserController::class, 'detail'])->name('users.detail');
+
+
+
+    Route::prefix('admin')->group(function () {
+
+        Route::prefix('resport')->group(function () {
+            Route::get('/', [App\Http\Controllers\Admin\ReportController::class, 'index'])->name('admin.report');
+            Route::get('/get', [App\Http\Controllers\Admin\ReportController::class, 'getData'])->name('admin.report.get');
+            Route::post('/detail', [App\Http\Controllers\Admin\ReportController::class, 'detail'])->name('admin.report.detail');
+            Route::get('/delete', [App\Http\Controllers\Admin\ReportController::class, 'delete'])->name('admin.report.delete');
+            Route::post('/edit', [App\Http\Controllers\Admin\ReportController::class, 'edit'])->name('admin.report.edit');
+            Route::get('/export', [App\Http\Controllers\Admin\ReportController::class, 'export'])->name('admin.report.export');
+        });
+
+        Route::prefix('users')->group(function () {
+            Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('admin.users');
+            Route::get('/get', [App\Http\Controllers\UserController::class, 'getData'])->name('admin.users.get');
+            Route::post('/detail', [App\Http\Controllers\UserController::class, 'detail'])->name('admin.users.detail');
+            Route::get('/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('admin.users.delete');
+            Route::post('/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('admin.users.edit');
+        });
+    });
 });
