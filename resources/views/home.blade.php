@@ -69,11 +69,11 @@
                             @endforeach
                         </select>
                     </div>
-                    
+
                     <div class="col-md-2" >
                         <button type="submit" class="btn btn-primary w-40" id="filter" style="float: left; margin-right:5px"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
                     </div>
-                    
+
                 </div>
             </form>
             <div class="post-area">
@@ -115,11 +115,11 @@
                             {{ $report->deskripsi }}
                         </p>
                         <div class="dz-media">
-                            <img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/">
-                            <div class="post-meta-btn">
+                            <img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/"  style="width: 100%; height:200px">
+                            <div class="post-meta-btn" >
                                 <ul>
                                     <li>
-                                        <a href="{{ route('comment',['id'=>encrypt($report->id)]) }}" class="action-btn bg-secondary">
+                                        <a href="{{ route('comment',['id'=>encrypt($report->id)]) }}" class="action-btn bg-secondary" >
                                             <i class="fa-solid fa-comment fill-icon"></i>
                                             <h6 class="font-14 mb-0 ms-2">{{ $report->comment_count }}</h6>
                                         </a>
