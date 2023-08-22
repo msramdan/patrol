@@ -10,11 +10,30 @@
 @php
     use Carbon\Carbon;
 @endphp
+
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+</style>
+
+
+
 <body>
     <table class="table">
         <thead>
             <tr>
-                <td>Staff</td>
+                <td>Nama</td>
                 <td>Tanggal</td>
                 <td>Jam Mulai</td>
                 <td>Jam Selesai</td>
@@ -29,8 +48,8 @@
                     <td>{{ $item->jam_awal }}</td>
                     <td>{{ $item->jam_akhir }}</td>
                     <td>{{ $item->penugasan }}</td>
-                    
-                </tr>    
+
+                </tr>
 
             @endforeach
 

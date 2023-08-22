@@ -163,7 +163,7 @@
                         data: null,
                         orderable: false,
                         render: function(data, type, row) {
-                            return `<img src="{{ asset('storage/profiles') }}/${data.photo}" alt="">`;
+                            return `<img src="{{ asset('storage/profiles') }}/${data.photo}" alt="" style="width:70px">`;
 
                         }
                     },

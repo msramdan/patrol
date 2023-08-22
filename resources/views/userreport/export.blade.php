@@ -10,6 +10,22 @@
 @php
     use Carbon\Carbon;
 @endphp
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid;
+    }
+
+    th {
+        text-align: center;
+    }
+
+    td {
+        text-align: center;
+    }
+</style>
+
 <body>
     <table class="table">
         <thead>
@@ -37,9 +53,9 @@
                             $imageData = file_get_contents($imagePath);
                             $base64Image = base64_encode($imageData);
                         ?>
-                        <img src="data:image/jpeg;base64,{{ $base64Image }}" alt="Gambar">
+                        <img src="data:image/jpeg;base64,{{ $base64Image }}" alt="Gambar"  style="width: 150px; padding:5px">
                     </td>
-                </tr>    
+                </tr>
 
             @endforeach
 
