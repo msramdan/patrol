@@ -24,7 +24,7 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::get('/get', [App\Http\Controllers\Resport::class, 'getData'])->name('report.get');
         Route::post('/detail', [App\Http\Controllers\Resport::class, 'detail'])->name('report.detail');
         Route::post('/edit', [App\Http\Controllers\Resport::class, 'edit'])->name('report.edit');
-        Route::post('/delete', [App\Http\Controllers\Resport::class, 'delete'])->name('report.delete');
+        Route::get('/delete', [App\Http\Controllers\Resport::class, 'delete'])->name('report.delete');
         Route::get('/export', [App\Http\Controllers\Resport::class, 'export'])->name('report.export');
     });
     Route::prefix('profile')->group(function () {
