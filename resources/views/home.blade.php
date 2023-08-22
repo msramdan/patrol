@@ -19,7 +19,8 @@
                         <div class="swiper-wrapper">
                             @foreach ($users as $user)
                                 <div class="swiper-slide">
-                                    <a href="{{ route('profile.detail', ['id' => encrypt($user->id)]) }}" class="categore-box">
+                                    <a href="{{ route('profile.detail', ['id' => encrypt($user->id)]) }}"
+                                        class="categore-box">
                                         <div class="story-bx">
                                             @if (empty($user->photo))
                                                 <img src=" {{ asset('template') }}/assets/images/stories/small/pic4.jpg"
@@ -48,7 +49,8 @@
                                     <i class="fa-solid fa-calendar"></i>
                                 </div>
                             </span>
-                            <input type="date" class="form-control" name="start_date" value="{{ request('start_date') }}">
+                            <input type="date" class="form-control" name="start_date"
+                                value="{{ request('start_date') }}">
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -65,13 +67,16 @@
                         <select class="mb-3" name="no_laporan">
                             <option value=""></option>
                             @foreach ($no_laporans as $no_laporan)
-                                <option {{ request('no_laporan')==$no_laporan->no_laporan?'selected':'' }} >{{ $no_laporan->no_laporan }}</option>
+                                <option {{ request('no_laporan') == $no_laporan->no_laporan ? 'selected' : '' }}>
+                                    {{ $no_laporan->no_laporan }}</option>
                             @endforeach
                         </select>
                     </div>
 
-                    <div class="col-md-2" >
-                        <button type="submit" class="btn btn-primary w-40" id="filter" style="float: left; margin-right:5px"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-primary w-40" id="filter"
+                            style="float: left; margin-right:5px"><i class="fa fa-filter" aria-hidden="true"></i>
+                            Filter</button>
                     </div>
 
                 </div>
@@ -115,11 +120,13 @@
                             {{ $report->deskripsi }}
                         </p>
                         <div class="dz-media">
-                            <img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/"  style="width: 100%; height:250px">
-                            <div class="post-meta-btn" >
+                            <img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/"
+                                style="width: 100%; height:250px">
+                            <div class="post-meta-btn">
                                 <ul>
                                     <li>
-                                        <a href="{{ route('comment',['id'=>encrypt($report->id)]) }}" class="action-btn bg-secondary" >
+                                        <a href="{{ route('comment', ['id' => encrypt($report->id)]) }}"
+                                            class="action-btn bg-secondary">
                                             <i class="fa-solid fa-comment fill-icon"></i>
                                             <h6 class="font-14 mb-0 ms-2">{{ $report->comment_count }}</h6>
                                         </a>
@@ -142,3 +149,11 @@
         </div>
     </div>
 @endsection
+
+@push('js')
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-single').select2();
+        });
+    </script>
+@endpush

@@ -2,7 +2,7 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
-    
+
 
 
     <meta charset="utf-8">
@@ -24,6 +24,7 @@
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js">
     </script>
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     @php
         use Illuminate\Support\Facades\Auth;
     @endphp
@@ -316,6 +317,7 @@
     <script src="{{ asset('template') }}/assets/js/custom.js"></script>
     <script src="{{ asset('template') }}/index.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
     <script>
         $(".stepper").TouchSpin();
