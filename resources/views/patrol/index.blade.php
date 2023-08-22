@@ -124,7 +124,10 @@
                             <div class="alert text-danger mb-0">{{ $message }}</div>
                         @enderror
                         <div class="mb-3 input-group input-radius">
-                            <input name="penugasan" type="text" class="form-control" placeholder="Penugasan" value="{{ old('penugasan') }}">
+                            <select class="mb-3" name="penugasan">
+                                    <option value="patroli">Patroli</option>
+                                    <option value="jaga">Jaga</option>
+                            </select>
                         </div>
 
                         <button class="btn btn-primary mt-3 btn-block">Submit</button>

@@ -42,6 +42,15 @@ Route::middleware(['auth', 'web'])->group(function () {
     Route::get('/get', [App\Http\Controllers\UserController::class, 'getData'])->name('users.get');
     Route::get('/detail', [App\Http\Controllers\UserController::class, 'detail'])->name('users.detail');
 
+    Route::prefix('patrol')->group(function () {
+        Route::get('/', [App\Http\Controllers\PatrolController::class, 'index'])->name('patrol');
+    });
+    Route::prefix('comment')->group(function () {
+        Route::get('/{id}', [App\Http\Controllers\Resport::class, 'comment'])->name('comment');
+        Route::post('/save', [App\Http\Controllers\Resport::class, 'commentSave'])->name('comment.save');
+    });
+
+
 
 
     Route::prefix('admin')->group(function () {

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('user_id');
             $table->datetime('tanggal');
             $table->longText('deskripsi');
+            $table->integer('reff')->nullable();
             $table->timestamps();
         });
     }
