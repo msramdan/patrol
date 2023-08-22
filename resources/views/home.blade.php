@@ -119,9 +119,9 @@
                             <div class="post-meta-btn">
                                 <ul>
                                     <li>
-                                        <a href="comment.html" class="action-btn bg-secondary">
+                                        <a href="{{ route('comment',['id'=>encrypt($report->id)]) }}" class="action-btn bg-secondary">
                                             <i class="fa-solid fa-comment fill-icon"></i>
-                                            <h6 class="font-14 mb-0 ms-2">150</h6>
+                                            <h6 class="font-14 mb-0 ms-2">{{ $report->comment_count }}</h6>
                                         </a>
                                     </li>
                                 </ul>

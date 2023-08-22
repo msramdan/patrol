@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
+use Illuminate\Support\Facades\DB;
 use Symfony\Component\VarDumper\Cloner\Data;
 
 class HomeController extends Controller
@@ -32,11 +33,14 @@ class HomeController extends Controller
         $users = User::where('level_user', 2)->get();
 
         $reportsQuery = Report::leftJoin('users', 'reports.user_id', '=', 'users.id')
+            ->leftJoin('report_comments', 'reports.id', '=', 'report_comments.laporan_id')
             ->select(
                 'reports.*',
                 'users.name as user_name',
-                'users.photo as user_photo'
+                'users.photo as user_photo',
+                DB::raw('COUNT(report_comments.id) as comment_count')
             )
+            ->groupBy('reports.id')
             ->latest();
 
         if (!empty($request->start_date) && !empty($request->end_date)) {
@@ -48,6 +52,7 @@ class HomeController extends Controller
         if (!empty($request->no_laporan)) {
             $reportsQuery->where('reports.no_laporan', $request->no_laporan);
         }
+
 
         $perPage = 10; // Ganti dengan jumlah yang sesuai
         $reports = $reportsQuery->simplePaginate($perPage);

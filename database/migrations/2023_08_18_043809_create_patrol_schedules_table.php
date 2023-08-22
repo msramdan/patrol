@@ -17,7 +17,7 @@ return new class extends Migration
             $table->date('tanggal');
             $table->time('jam_awal');
             $table->time('jam_akhir');
-            $table->string('penugasan');
+            $table->enum('penugasan', ['patroli', 'jaga']);
             $table->timestamps();
         });
     }
