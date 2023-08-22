@@ -9,7 +9,6 @@
             text-overflow: ellipsis;
         }
     </style>
-
     <div class="content-inner pt-0">
         <div class="container p-b50">
 
@@ -40,6 +39,43 @@
             </div>
             <!-- STORY -->
 
+            <form action="{{ route('home') }}" method="get">
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <div class="mb-3 input-group input-group-icon">
+                            <span class="input-group-text">
+                                <div class="input-icon">
+                                    <i class="fa-solid fa-calendar"></i>
+                                </div>
+                            </span>
+                            <input type="date" class="form-control" name="start_date" value="{{ request('start_date') }}">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="mb-3 input-group input-group-icon">
+                            <span class="input-group-text">
+                                <div class="input-icon">
+                                    <i class="fa-solid fa-calendar"></i>
+                                </div>
+                            </span>
+                            <input type="date" class="form-control" name="end_date" value="{{ request('end_date') }}">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="mb-3" name="no_laporan">
+                            <option value=""></option>
+                            @foreach ($no_laporans as $no_laporan)
+                                <option {{ request('no_laporan')==$no_laporan->no_laporan?'selected':'' }} >{{ $no_laporan->no_laporan }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-2" >
+                        <button type="submit" class="btn btn-primary w-40" id="filter" style="float: left; margin-right:5px"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
+                    </div>
+                    
+                </div>
+            </form>
             <div class="post-area">
 
                 @foreach ($reports as $report)
