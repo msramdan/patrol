@@ -81,7 +81,7 @@
 							<p class="mb-2">{{ $comment->deskripsi }}</p>
 							<ul class="bottom-item">
 								{{-- <li class="text-light">3 Like</li> --}}
-								<li class="text-light">Reply</li>
+								<li class="text-light reply" data-reff="{{ $comment->id }}">Reply</li>
 								{{-- <li class="text-light">Send</li> --}}
 							</ul>
 						</div>
