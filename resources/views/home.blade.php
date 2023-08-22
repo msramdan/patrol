@@ -115,7 +115,7 @@
                             {{ $report->deskripsi }}
                         </p>
                         <div class="dz-media">
-                            <img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/"  style="width: 100%; height:200px">
+                            <img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/"  style="width: 100%; height:250px">
                             <div class="post-meta-btn" >
                                 <ul>
                                     <li>
