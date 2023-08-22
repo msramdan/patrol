@@ -30,7 +30,11 @@ class ReportController extends Controller
             $query->whereBetween('tanggal', [$start, $end]);
         }
 
-        return DataTables::of($query)->toJson();
+        return DataTables::of($query)
+            ->addColumn('link', function ($report) {
+                return route('home', ['no_laporan' => $report->no_laporan]);
+            })
+            ->toJson();
     }
 
     public function export(Request $request)

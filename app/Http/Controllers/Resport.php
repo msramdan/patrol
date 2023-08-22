@@ -93,7 +93,11 @@ class Resport extends Controller
             $query->whereBetween('tanggal', [$start, $end]);
         }
         $query->where('user_id', Auth::user()->id);
-        return DataTables::of($query)->toJson();
+        return DataTables::of($query)
+            ->addColumn('link', function ($report) {
+                return route('home', ['no_laporan' => $report->no_laporan]);
+            })
+            ->toJson();
     }
 
     public function detail(Request $request)
