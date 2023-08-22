@@ -175,6 +175,12 @@
 		});
 		$('.reply').click(function(){
 			var reff = $(this).attr('data-reff');
+			$('.reply').removeClass('text-primary');
+			$('.reply').removeClass('text-light');
+			$('.reply').addClass('text-light');
+			$(this).removeClass('text-light');
+			$(this).addClass('text-primary');
+
 			$('#reff').val(reff);
 		});
 
