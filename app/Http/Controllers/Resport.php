@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Report;
+use App\Models\ReportComment;
 use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -174,5 +175,39 @@ class Resport extends Controller
         $pdf = PDF::loadView('userreport.export', ['data' => $data]);
 
         return $pdf->download($start . '-' . $end . '.pdf');
+    }
+
+    public function comment($id)
+    {
+        $id = decrypt($id);
+        $comments = ReportComment::where('laporan_id', $id)
+            ->leftJoin('users', 'report_comments.user_id', '=', 'users.id')
+            ->select(
+                'report_comments.*',
+                'users.name as name',
+                'users.photo as photo',
+            )
+            ->where('report_comments.reff', null)
+            ->get();
+        $data = [
+            'comments' => $comments,
+            'id' => $id,
+        ];
+
+        return view('comment', $data);
+    }
+    public function commentSave(Request $request)
+    {
+        $data = [
+            'laporan_id' => $request->report_id,
+            'user_id' => Auth::user()->id,
+            'tanggal' => now(),
+            'deskripsi' => $request->deskripsi,
+        ];
+        if (!empty($request->reff)) {
+            $data['reff'] = $request->reff;
+        }
+        ReportComment::create($data);
+        return back();
     }
 }
