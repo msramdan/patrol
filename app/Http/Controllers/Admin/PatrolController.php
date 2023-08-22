@@ -126,7 +126,7 @@ class PatrolController extends Controller
 
         $pdf = PDF::loadView('patrol.export', ['data' => $data]);
 
-        return $pdf->download($start . '-' . $end . '.pdf');
+        return $pdf->stream($start . '-' . $end . '.pdf');
     }
     public function delete(Request $request)
     {
