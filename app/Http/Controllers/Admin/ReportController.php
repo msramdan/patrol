@@ -29,7 +29,9 @@ class ReportController extends Controller
             $end = Carbon::parse($request->input('end_date'))->endOfDay();
             $query->whereBetween('tanggal', [$start, $end]);
         }
-
+        $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
+        $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
+        $query->select('reports.*', 'user_creator.name as creator_name', 'user_updater.name as updater_name');
         return DataTables::of($query)
             ->addColumn('link', function ($report) {
                 return route('home', ['no_laporan' => $report->no_laporan]);

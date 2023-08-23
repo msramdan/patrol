@@ -88,12 +88,19 @@ class Resport extends Controller
         $query = Report::query();
 
         // Filter rentang tanggal
-        if ($request->has('start_date') && $request->has('end_date')) {
+        if (!empty($request->start_date) && !empty($request->end_date)) {
             $start = Carbon::parse($request->input('start_date'))->startOfDay();
             $end = Carbon::parse($request->input('end_date'))->endOfDay();
             $query->whereBetween('tanggal', [$start, $end]);
         }
-        $query->where('user_id', Auth::user()->id);
+        if (!empty($request->user_id)) {
+            $query->where('reports.user_id', decrypt($request->user_id));
+        }
+
+
+        $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
+        $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
+        $query->select('reports.*', 'user_creator.name as creator_name', 'user_updater.name as updater_name');
         return DataTables::of($query)
             ->addColumn('link', function ($report) {
                 return route('home', ['no_laporan' => $report->no_laporan]);
@@ -103,12 +110,12 @@ class Resport extends Controller
 
     public function detail(Request $request)
     {
-        return response()->json(Report::where('id', $request->id)->where('user_id', Auth::user()->id)->first());
+        return response()->json(Report::where('id', $request->id)->first());
     }
 
     public function delete(Request $request)
     {
-        Report::where('id', $request->id)->where('user_id', Auth::user()->id)->delete();
+        Report::where('id', $request->id)->delete();
         Alert::success('Success', 'data berhasil di hapus');
         return back();
     }
@@ -148,11 +155,11 @@ class Resport extends Controller
             $dataUpdate['photo'] = $photoName;
 
             //hapus poyho sebelumnya
-            $oldData = Report::where('id', $request->id)->where('user_id', Auth::user()->id)->first();
+            $oldData = Report::where('id', $request->id)->first();
             Storage::delete('public/photos/' . $oldData->photo);
         }
 
-        Report::where('id', $request->id)->where('user_id', Auth::user()->id)->update($dataUpdate);
+        Report::where('id', $request->id)->update($dataUpdate);
         Alert::success('Success', 'data berhasil di Perbarui');
         return back();
     }
@@ -189,9 +196,14 @@ class Resport extends Controller
             )
             ->where('report_comments.reff', null)
             ->get();
+        $report = Report::where('reports.id', $id)
+            ->leftJoin('users', 'reports.user_id', '=', 'users.id')
+            ->select('reports.*', 'users.name as user_name ')
+            ->first();
         $data = [
             'comments' => $comments,
             'id' => $id,
+            'report' => $report,
         ];
 
         return view('comment', $data);
@@ -209,5 +221,16 @@ class Resport extends Controller
         }
         ReportComment::create($data);
         return back();
+    }
+
+    public function update(Request $request)
+    {
+        $id = decrypt($request->id);
+
+        Report::where('id', $id)->update([
+            'user_update' => Auth::user()->id,
+            'status_laporan' => $request->status,
+        ]);
+        return response()->json(['status' => true]);
     }
 }
