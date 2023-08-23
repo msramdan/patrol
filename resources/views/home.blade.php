@@ -134,8 +134,8 @@
                                         <div class="col-md-12">
                                             <div class="btn-group" style="float: left">
                                                 <a href="{{ route('comment', ['id' => encrypt($report->id)]) }}"
-                                                    class="btn btn-primary" autocomplete="off"><i class="fa fa-comment"
-                                                        aria-hidden="true"></i> 10000</a>
+                                                    class="btn btn-primary" autocomplete="off" style="width: 80px;text-align:left "><i class="fa fa-comment"
+                                                        aria-hidden="true"></i> {{ $report->comment_count }}</a>
                                             </div>&nbsp;
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-danger">Update</button>
