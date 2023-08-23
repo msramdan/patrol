@@ -17,5 +17,6 @@ class Report extends Model
         'phone',
         'status_laporan',
         'photo',
+        'user_update',
     ];
 }

@@ -50,6 +50,8 @@
                 <table class="table table-responsive" id="table">
                     <thead class="thead-dark">
                         <tr>
+                            <th scope="col">User</th>
+                            <th scope="col">User Update</th>
                             <th scope="col">No Laporan</th>
                             <th scope="col">Judul</th>
                             <th scope="col">Tanggal</th>
@@ -162,7 +164,16 @@
                 serverSide: true,
                 lengthChange: false,
                 bInfo: false,
-                columns: [{
+                columns: [
+                    {
+                        data: 'creator_name',
+                        name:'user_creator.name'
+                    },
+                    {
+                        data: 'updater_name',
+                        name:'user_updater.name'
+                    },
+                    {
                         data: 'no_laporan',
                     },
                     {

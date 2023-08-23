@@ -90,7 +90,7 @@
                         <div class="post-card">
                             <div class="top-meta">
                                 <div class="d-flex justify-content-between align-items-start">
-                                    <a href="user-profile.html" class="media media-40">
+                                    <a href="javascript:void(0);" class="media media-40">
                                         @if (empty($report->user_photo))
                                             <img class="rounded"
                                                 src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg"
@@ -101,15 +101,13 @@
                                         @endif
                                     </a>
                                     <div class="meta-content ms-3">
-                                        <h6 class="title mb-0"><a href="user-profile.html">{{ $report->user_name }}</a></h6>
+                                        <h6 class="title mb-0"><a href="javascript:void(0);">{{ $report->user_name }}</a></h6>
                                         <ul class="meta-list" style="padding-left: 0px">
                                             <li>
                                                 @if ($report->status_laporan == 'request')
-                                                    <span class="badge bg-secondary"><i class="fa fa-refresh"
-                                                            aria-hidden="true"></i> Belum di proses</span>
+                                                    <span class="badge bg-secondary"><i class="fa fa-refresh" aria-hidden="true"></i> Belum di proses</span>
                                                 @else
-                                                    <span class="badge bg-success"><i class="fa fa-check"
-                                                            aria-hidden="true"></i> Sudah di proses</span>
+                                                    <span class="badge bg-success"><i class="fa fa-check" aria-hidden="true"></i> Sudah di proses</span>
                                                 @endif
                                             </li>
                                             <li>
@@ -145,8 +143,8 @@
                                                     <span class="visually-hidden">Toggle Dropdown</span>
                                                 </button>
                                                 <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item" href="#">Belum di proses</a></li>
-                                                    <li><a class="dropdown-item" href="#">Sudah di proses</a></li>
+                                                    <li><a class="dropdown-item request" href="javascript:void(0);" data-id="{{ encrypt($report->id) }}">Belum di proses</a></li>
+                                                    <li><a class="dropdown-item accept" href="javascript:void(0);" data-id="{{ encrypt($report->id) }}" >Sudah di proses</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -172,7 +170,55 @@
 
         </div>
     </div>
-@endsection
+
+
+<script>
+    $(document).ready(function () {
+        $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+
+        $('.accept').click(function (e) { 
+            var id = $(this).attr('data-id');
+            var card =  $(this).closest('.card-body');
+            console.log(card)
+            card.find('.badge').html(`<i class="fa fa-check" aria-hidden="true"></i> Sudah di proses`);
+            card.find('.badge').removeClass('bg-secondary');
+            card.find('.badge').addClass('bg-success');
+            
+            $.ajax({
+                url: '{{ route("report.update") }}',
+                type: 'POST',
+                dataType: 'json',
+                data: {id: id,status:'accept'},
+            })
+        });
+        $('.request').click(function (e) { 
+            var id = $(this).attr('data-id');
+            var card =  $(this).closest('.card-body');
+            card.find('.badge').html(`<i class="fa fa-refres" aria-hidden="true"></i> Belum di proses`);
+            card.find('.badge').removeClass('bg-success');
+            card.find('.badge').addClass('bg-secondary');
+            
+            $.ajax({
+                url: '{{ route("report.update") }}',
+                type: 'POST',
+                dataType: 'json',
+                data: {id: id,status:'request'},
+            })
+        });
+
+
+
+    });
+
+
+</script>
+
+
 
 @push('js')
     <script>
@@ -181,3 +227,4 @@
         });
     </script>
 @endpush
+@endsection
