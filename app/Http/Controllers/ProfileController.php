@@ -80,9 +80,10 @@ class ProfileController extends Controller
         if (empty($user)) {
             return back();
         }
-
+        
         $data = [
             'user' => $user,
+
         ];
 
 

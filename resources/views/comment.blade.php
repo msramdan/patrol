@@ -66,6 +66,77 @@
 
     <!-- Page Content -->
     <div class="page-content">
+		<div class="card">
+			<div class="card-body" style="padding-bottom: 0px">
+				<div class="post-card">
+					<div class="top-meta">
+						<div class="d-flex justify-content-between align-items-start">
+							<a href="javascript:void(0);" class="media media-40">
+								@if (empty($report->user_photo))
+									<img class="rounded"
+										src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg"
+										alt="/">
+								@else
+									<img class="rounded" src="{{ asset('storage/profiles/' . $report->user_photo) }}"
+										alt="/">
+								@endif
+							</a>
+							<div class="meta-content ms-3">
+								<h6 class="title mb-0"><a href="javascript:void(0);">{{ $report->user_name }}</a></h6>
+								<ul class="meta-list" style="padding-left: 0px">
+									<li>
+										@if ($report->status_laporan == 'request')
+											<span class="badge bg-secondary"><i class="fa fa-refresh" aria-hidden="true"></i> Belum di proses</span>
+										@else
+											<span class="badge bg-success"><i class="fa fa-check" aria-hidden="true"></i> Sudah di proses</span>
+										@endif
+									</li>
+									<li>
+										{{ \Carbon\Carbon::parse($report->tanggal)->diffForHumans() }}
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<p class="text-black">
+					<p style="margin-bottom: 10px"><b><i class="fa fa-info-circle" aria-hidden="true"></i>
+							{{ $report->no_laporan }} - {{ $report->phone }}</b></p>
+					<p style="text-align: justify">
+						{{ $report->deskripsi }}
+					</p>
+					</p>
+					<div class="dz-media">
+						<img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/"
+							style="width: 100%; height:250px">
+						{{-- <div>
+							<div class="row mt-4">
+								<div class="col-md-12">
+									<div class="btn-group" style="float: left">
+										<a href="{{ route('comment', ['id' => encrypt($report->id)]) }}"
+											class="btn btn-primary" autocomplete="off" style="width: 80px;text-align:left "><i class="fa fa-comment"
+												aria-hidden="true"></i> {{ $report->comment_count }}</a>
+									</div>&nbsp;
+									<div class="btn-group">
+										<button type="button" class="btn btn-danger">Update</button>
+										<button type="button"
+											class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+											data-bs-toggle="dropdown" aria-expanded="false">
+											<span class="visually-hidden">Toggle Dropdown</span>
+										</button>
+										<ul class="dropdown-menu">
+											<li><a class="dropdown-item request" href="javascript:void(0);" data-id="{{ encrypt($report->id) }}">Belum di proses</a></li>
+											<li><a class="dropdown-item accept" href="javascript:void(0);" data-id="{{ encrypt($report->id) }}" >Sudah di proses</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div> --}}
+					</div>
+				</div>
+			</div>
+		  </div>
+
+
         <div class="container profile-area bottom-content">
 			<ul class="dz-comments-list">
 				@foreach ($comments as $comment)

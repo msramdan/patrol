@@ -63,7 +63,12 @@ class HomeController extends Controller
             'title' => 'Home',
             'no_laporans' => Report::select('no_laporan')->get(),
         ];
+        
 
         return view('home', $data);
     }
+
+    
+
+
 }
