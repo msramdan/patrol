@@ -180,7 +180,6 @@
 			$('.reply').addClass('text-light');
 			$(this).removeClass('text-light');
 			$(this).addClass('text-primary');
-
 			$('#reff').val(reff);
 		});
 
