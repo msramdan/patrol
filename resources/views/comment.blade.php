@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/">
 	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
-	
+
 
 
 </head>
@@ -53,7 +53,7 @@
 					<a href="{{ route('home') }}" class="back-btn">
 						<i class="fa-solid fa-arrow-left"></i>
 					</a>
-					<h4 class="title mb-0">Comments 2</h4>
+					<h4 class="title mb-0">Comments</h4>
 				</div>
 				<div class="mid-content">
 				</div>

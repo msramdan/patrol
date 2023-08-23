@@ -54,7 +54,7 @@ class HomeController extends Controller
         }
 
 
-        $perPage = 10; // Ganti dengan jumlah yang sesuai
+        $perPage = 5; // Ganti dengan jumlah yang sesuai
         $reports = $reportsQuery->simplePaginate($perPage);
 
         $data = [
