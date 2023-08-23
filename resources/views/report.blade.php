@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from soziety.dexignzone.com/xhtml/edit-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Aug 2023 02:37:20 GMT -->
-
 <head>
-    <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, minimal-ui, viewport-fit=cover">
     <meta name="theme-color" content="#2196f3">
@@ -16,21 +12,12 @@
     <meta property="og:description" content="Soziety - Social Network Mobile App Template ( Bootstrap 5 + PWA )" />
     <meta property="og:image" content="error.html" />
     <meta name="format-detection" content="telephone=no">
-
-    <!-- Favicons Icon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.png" />
-
-    <!-- Title -->
     <title>Laporan</title>
-
-    <!-- Stylesheets -->
-    <!-- Stylesheets -->
     <link href="{{ asset('template') }}/assets/vendor/lightgallery/dist/css/lightgallery.css" rel="stylesheet">
     <link href="{{ asset('template') }}/assets/vendor/lightgallery/dist/css/lg-thumbnail.css" rel="stylesheet">
     <link href="{{ asset('template') }}/assets/vendor/lightgallery/dist/css/lg-zoom.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ asset('template') }}/assets/css/style.css">
-
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&amp;family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -39,14 +26,9 @@
 
 <body>
     <div class="page-wraper header-fixed">
-
-        <!-- Preloader -->
         <div id="preloader">
             <div class="spinner"></div>
         </div>
-        <!-- Preloader end-->
-
-        <!-- Header -->
         <header class="header bg-white">
             <div class="container">
                 <div class="main-bar">
@@ -69,9 +51,6 @@
                 </div>
             </div>
         </header>
-        <!-- Header End -->
-
-        <!-- Page Content -->
         <div class="page-content">
             <div class="container">
                 <div class="edit-profile">
@@ -112,11 +91,7 @@
                 </div>
             </div>
         </div>
-        <!-- Page Content End-->
     </div>
-    <!--**********************************
-    Scripts
-***********************************-->
     <script src="{{ asset('template') }}/assets/js/jquery.js"></script>
     <script src="{{ asset('template') }}/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="{{ asset('template') }}/assets/vendor/lightgallery/dist/lightgallery.umd.js"></script>
@@ -132,7 +107,4 @@
             });
         });
     </script>
-
-    <!-- Mirrored from soziety.dexignzone.com/xhtml/edit-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Aug 2023 02:37:20 GMT -->
-
 </html>
