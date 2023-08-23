@@ -39,6 +39,16 @@
                             <input type="datetime-local" class="form-control" id="end_date">
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="mb-3 input-group input-radius">
+                                <select class="mb-3" name="user_id" id="user_id">
+                                        <option value="">User</option>
+                                        @foreach ($users as $user)
+                                        <option value="{{ encrypt($user->id) }}">{{ $user->name }}</option>
+                                        @endforeach
+                                </select>
+                        </div>
+                    </div>
                     <div class="col-md-4" >
                         <button type="button" class="btn btn-primary w-40" id="filter" style="float: left; margin-right:5px"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
                         <button type="button" class="btn btn-danger w-40" id="export"><i class="fa fa-file-pdf" aria-hidden="true"></i> Export</button>
@@ -171,6 +181,7 @@
                     data: function(data) {
                         data.start_date = $('#start_date').val();
                         data.end_date = $('#end_date').val();
+                        data.user_id = $('#user_id').val();
                     }
                 },
                 processing: true,
