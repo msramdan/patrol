@@ -65,11 +65,11 @@
                             <button type="button" class="btn btn-danger w-40" id="export"><i class="fa fa-file-pdf" aria-hidden="true"></i> Export</button>
                         </div>
                         {{-- <div class="col-md-2">
-    
+
                         </div> --}}
                     </div>
-    
-    
+
+
                     <table class="table table-responsive" id="table">
                         <thead class="thead-dark">
                             <tr>
@@ -81,19 +81,18 @@
                                 <th scope="col">Phone</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Gambar</th>
-                                {{-- <th scope="col">Action</th> --}}
                             </tr>
                         </thead>
                         <tbody>
-    
+
                         </tbody>
                     </table>
                 </div>
             </div>
 
         </div>
-        
-       
+
+
 
 
 
@@ -111,7 +110,6 @@ $(document).ready(function () {
                     data: function(data) {
                         data.start_date = $('#start_date').val();
                         data.end_date = $('#end_date').val();
-                        data.user_id = "{{ encrypt($user->id) }}"
                     }
                 },
                 processing: true,
@@ -150,19 +148,6 @@ $(document).ready(function () {
                             return element;
                         }
                     },
-                    // {
-                    //     data: null,
-                    //     render: function(data, type, row) {
-                    //         var element = `
-                    //     <div class="d-flex justify-content-center">
-                    //         <a href="${data.link}" class="btn btn-success btn-sm mx-1" ><i class="fa fa-eye" aria-hidden="true"></i></a>
-                    //         <button class="btn btn-primary btn-sm edit-button mx-1" data-id="${data.id}" data-bs-toggle="modal" data-bs-target="#edit-modal" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    //         <button class="btn btn-danger btn-sm delete-button mx-1" data-id="${data.id}"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                    //     </div>
-                    // `;
-                    //         return element;
-                    //     }
-                    // }
                 ],
 
 
@@ -173,6 +158,6 @@ $(document).ready(function () {
 
                 }
             });
-});    
-</script>    
+});
+</script>
 @endsection

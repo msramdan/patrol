@@ -42,7 +42,6 @@ class ReportController extends Controller
             $query->whereIn('reports.user_id', $userIds);
         }
 
-
         $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
         $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
         $query->select('reports.*', 'user_creator.name as creator_name', 'user_updater.name as updater_name');
