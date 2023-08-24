@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Intervention\Image\Facades\Image;
 use DataTables;
+use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
 class Resport extends Controller
@@ -91,7 +93,6 @@ class Resport extends Controller
     public function getData(Request $request)
     {
         $query = Report::query();
-
         // Filter rentang tanggal
         if (!empty($request->start_date) && !empty($request->end_date)) {
             $start = Carbon::parse($request->input('start_date'))->startOfDay();
@@ -99,9 +100,12 @@ class Resport extends Controller
             $query->whereBetween('tanggal', [$start, $end]);
         }
         if (!empty($request->user_id)) {
-            $query->where('reports.user_id', decrypt($request->user_id));
+            $userIds = [];
+            foreach ($request->user_id as $val) {
+                array_push($userIds, decrypt($val));
+            }
+            $query->whereIn('reports.user_id', $userIds);
         }
-
 
 
         $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
