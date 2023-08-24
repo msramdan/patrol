@@ -33,9 +33,16 @@ class ReportController extends Controller
             $end = Carbon::parse($request->input('end_date'))->endOfDay();
             $query->whereBetween('tanggal', [$start, $end]);
         }
+
         if (!empty($request->user_id)) {
-            $query->where('reports.user_id', decrypt($request->user_id));
+            $userIds = [];
+            foreach ($request->user_id as $val) {
+                array_push($userIds, decrypt($val));
+            }
+            $query->whereIn('reports.user_id', $userIds);
         }
+
+
         $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
         $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
         $query->select('reports.*', 'user_creator.name as creator_name', 'user_updater.name as updater_name');
@@ -51,16 +58,28 @@ class ReportController extends Controller
         $start = Carbon::parse($request->input('start_date'))->startOfDay();
         $end = Carbon::parse($request->input('end_date'))->endOfDay();
 
-        // DB::table('resport')->select();
+        if (!empty($request->user_id)) {
+            $userIds = [];
+            foreach ($request->user_id as $val) {
+                array_push($userIds, decrypt($val));
+            }
+            // $query->whereIn('reports.user_id', $userIds);
+        }
 
         $data = Report::whereBetween('tanggal', [$start, $end])
             ->leftJoin('users', 'reports.user_id', '=', 'users.id')
             ->select(
                 'reports.*',
                 'users.name as name',
-            )
-            ->get();
-
+            );
+        if (!empty($request->user_id)) {
+            $userIds = [];
+            foreach ($request->user_id as $val) {
+                array_push($userIds, decrypt($val));
+            }
+            $data->whereIn('reports.user_id', $userIds);
+        }
+        $data = $data->get();
         $pdf = PDF::loadView('report.export', ['data' => $data]);
 
         return $pdf->download($start . '-' . $end . '.pdf');
