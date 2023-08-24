@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Report;
 use App\Models\ReportComment;
+use App\Models\User;
 use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -80,7 +81,11 @@ class Resport extends Controller
 
     public function  user()
     {
-        return view('userreport.index');
+        $data = [
+            'users' => User::select('name', 'id')->get(),
+        ];
+
+        return view('userreport.index', $data);
     }
 
     public function getData(Request $request)
@@ -96,6 +101,7 @@ class Resport extends Controller
         if (!empty($request->user_id)) {
             $query->where('reports.user_id', decrypt($request->user_id));
         }
+        
 
 
         $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
