@@ -41,7 +41,7 @@
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3 input-group input-radius">
-                                <select class="mb-3" name="user_id" id="user_id">
+                                <select class="mb-3" name="user_id[]" id="user_id" multiple="multiple">
                                         <option value="">User</option>
                                         @foreach ($users as $user)
                                         <option value="{{ encrypt($user->id) }}">{{ $user->name }}</option>
@@ -160,7 +160,7 @@
                 }
             });
 
-
+            $('#user_id').select2();
 
             var dataTable = new DataTable('#table', {
                 ajax: {
