@@ -101,7 +101,7 @@ class Resport extends Controller
         if (!empty($request->user_id)) {
             $query->where('reports.user_id', decrypt($request->user_id));
         }
-        
+
 
 
         $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
@@ -204,7 +204,7 @@ class Resport extends Controller
             ->get();
         $report = Report::where('reports.id', $id)
             ->leftJoin('users', 'reports.user_id', '=', 'users.id')
-            ->select('reports.*', 'users.name as user_name ')
+            ->select('reports.*', 'users.name as user_name')
             ->first();
         $data = [
             'comments' => $comments,

@@ -91,7 +91,7 @@
 											<span class="badge bg-success"><i class="fa fa-check" aria-hidden="true"></i> Sudah di proses</span>
 										@endif
 									</li>
-									<li>
+									<li class="title">
 										{{ \Carbon\Carbon::parse($report->tanggal)->diffForHumans() }}
 									</li>
 								</ul>
@@ -99,9 +99,9 @@
 						</div>
 					</div>
 					<p class="text-black">
-					<p style="margin-bottom: 10px"><b><i class="fa fa-info-circle" aria-hidden="true"></i>
+					<p style="margin-bottom: 10px" class="title"><b><i class="fa fa-info-circle" aria-hidden="true"></i>
 							{{ $report->no_laporan }} - {{ $report->phone }}</b></p>
-					<p style="text-align: justify">
+					<p style="text-align: justify" class="title">
 						{{ $report->deskripsi }}
 					</p>
 					</p>

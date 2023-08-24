@@ -110,7 +110,7 @@
                                                     <span class="badge bg-success"><i class="fa fa-check" aria-hidden="true"></i> Sudah di proses</span>
                                                 @endif
                                             </li>
-                                            <li>
+                                            <li class="title">
                                                 {{ \Carbon\Carbon::parse($report->tanggal)->diffForHumans() }}
                                             </li>
                                         </ul>
@@ -118,9 +118,9 @@
                                 </div>
                             </div>
                             <p class="text-black">
-                            <p style="margin-bottom: 10px"><b><i class="fa fa-info-circle" aria-hidden="true"></i>
+                            <p style="margin-bottom: 10px" class="title"><b><i class="fa fa-info-circle" aria-hidden="true"></i>
                                     {{ $report->no_laporan }} - {{ $report->phone }}</b></p>
-                            <p style="text-align: justify">
+                            <p style="text-align: justify"  class="title">
                                 {{ $report->deskripsi }}
                             </p>
                             </p>
@@ -181,14 +181,14 @@
             });
 
 
-        $('.accept').click(function (e) { 
+        $('.accept').click(function (e) {
             var id = $(this).attr('data-id');
             var card =  $(this).closest('.card-body');
             console.log(card)
             card.find('.badge').html(`<i class="fa fa-check" aria-hidden="true"></i> Sudah di proses`);
             card.find('.badge').removeClass('bg-secondary');
             card.find('.badge').addClass('bg-success');
-            
+
             $.ajax({
                 url: '{{ route("report.update") }}',
                 type: 'POST',
@@ -196,13 +196,13 @@
                 data: {id: id,status:'accept'},
             })
         });
-        $('.request').click(function (e) { 
+        $('.request').click(function (e) {
             var id = $(this).attr('data-id');
             var card =  $(this).closest('.card-body');
             card.find('.badge').html(`<i class="fa fa-refres" aria-hidden="true"></i> Belum di proses`);
             card.find('.badge').removeClass('bg-success');
             card.find('.badge').addClass('bg-secondary');
-            
+
             $.ajax({
                 url: '{{ route("report.update") }}',
                 type: 'POST',
