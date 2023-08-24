@@ -52,35 +52,33 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::post('/save', [App\Http\Controllers\Resport::class, 'commentSave'])->name('comment.save');
     });
 
+    Route::middleware(['admin'])->group(function () {
+        Route::prefix('admin')->group(function () {
+            Route::prefix('resport')->group(function () {
+                Route::get('/', [App\Http\Controllers\Admin\ReportController::class, 'index'])->name('admin.report');
+                Route::get('/get', [App\Http\Controllers\Admin\ReportController::class, 'getData'])->name('admin.report.get');
+                Route::post('/detail', [App\Http\Controllers\Admin\ReportController::class, 'detail'])->name('admin.report.detail');
+                Route::get('/delete', [App\Http\Controllers\Admin\ReportController::class, 'delete'])->name('admin.report.delete');
+                Route::post('/edit', [App\Http\Controllers\Admin\ReportController::class, 'edit'])->name('admin.report.edit');
+                Route::get('/export', [App\Http\Controllers\Admin\ReportController::class, 'export'])->name('admin.report.export');
+            });
+            Route::prefix('patrol')->group(function () {
+                Route::get('/', [App\Http\Controllers\Admin\PatrolController::class, 'index'])->name('admin.patrol');
+                Route::post('/add', [App\Http\Controllers\Admin\PatrolController::class, 'add'])->name('admin.patrol.add');
+                Route::get('/get', [App\Http\Controllers\Admin\PatrolController::class, 'getData'])->name('admin.patrol.get');
+                Route::post('/detail', [App\Http\Controllers\Admin\PatrolController::class, 'detail'])->name('admin.patrol.detail');
+                Route::get('/delete', [App\Http\Controllers\Admin\PatrolController::class, 'delete'])->name('admin.patrol.delete');
+                Route::post('/edit', [App\Http\Controllers\Admin\PatrolController::class, 'edit'])->name('admin.patrol.edit');
+                Route::get('/export', [App\Http\Controllers\Admin\PatrolController::class, 'export'])->name('admin.patrol.export');
+            });
 
-
-
-    Route::prefix('admin')->group(function () {
-
-        Route::prefix('resport')->group(function () {
-            Route::get('/', [App\Http\Controllers\Admin\ReportController::class, 'index'])->name('admin.report');
-            Route::get('/get', [App\Http\Controllers\Admin\ReportController::class, 'getData'])->name('admin.report.get');
-            Route::post('/detail', [App\Http\Controllers\Admin\ReportController::class, 'detail'])->name('admin.report.detail');
-            Route::get('/delete', [App\Http\Controllers\Admin\ReportController::class, 'delete'])->name('admin.report.delete');
-            Route::post('/edit', [App\Http\Controllers\Admin\ReportController::class, 'edit'])->name('admin.report.edit');
-            Route::get('/export', [App\Http\Controllers\Admin\ReportController::class, 'export'])->name('admin.report.export');
-        });
-        Route::prefix('patrol')->group(function () {
-            Route::get('/', [App\Http\Controllers\Admin\PatrolController::class, 'index'])->name('admin.patrol');
-            Route::post('/add', [App\Http\Controllers\Admin\PatrolController::class, 'add'])->name('admin.patrol.add');
-            Route::get('/get', [App\Http\Controllers\Admin\PatrolController::class, 'getData'])->name('admin.patrol.get');
-            Route::post('/detail', [App\Http\Controllers\Admin\PatrolController::class, 'detail'])->name('admin.patrol.detail');
-            Route::get('/delete', [App\Http\Controllers\Admin\PatrolController::class, 'delete'])->name('admin.patrol.delete');
-            Route::post('/edit', [App\Http\Controllers\Admin\PatrolController::class, 'edit'])->name('admin.patrol.edit');
-            Route::get('/export', [App\Http\Controllers\Admin\PatrolController::class, 'export'])->name('admin.patrol.export');
-        });
-
-        Route::prefix('users')->group(function () {
-            Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('admin.users');
-            Route::get('/get', [App\Http\Controllers\UserController::class, 'getData'])->name('admin.users.get');
-            Route::post('/detail', [App\Http\Controllers\UserController::class, 'detail'])->name('admin.users.detail');
-            Route::get('/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('admin.users.delete');
-            Route::post('/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('admin.users.edit');
+            Route::prefix('users')->group(function () {
+                Route::get('/', [App\Http\Controllers\UserController::class, 'index'])->name('admin.users');
+                Route::get('/get', [App\Http\Controllers\UserController::class, 'getData'])->name('admin.users.get');
+                Route::post('/detail', [App\Http\Controllers\UserController::class, 'detail'])->name('admin.users.detail');
+                Route::get('/delete', [App\Http\Controllers\UserController::class, 'delete'])->name('admin.users.delete');
+                Route::post('/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('admin.users.edit');
+            });
         });
     });
 });
