@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Report;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DataTables;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -16,7 +17,10 @@ class ReportController extends Controller
 {
     public function index()
     {
-        return view('report.index');
+        $data = [
+            'users' => User::select('name', 'id')->get(),
+        ];
+        return view('report.index', $data);
     }
 
     public function getData(Request $request)
@@ -28,6 +32,9 @@ class ReportController extends Controller
             $start = Carbon::parse($request->input('start_date'))->startOfDay();
             $end = Carbon::parse($request->input('end_date'))->endOfDay();
             $query->whereBetween('tanggal', [$start, $end]);
+        }
+        if (!empty($request->user_id)) {
+            $query->where('reports.user_id', decrypt($request->user_id));
         }
         $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
         $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
