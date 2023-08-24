@@ -124,11 +124,11 @@
                                 <button type="button" class="btn btn-danger w-40" id="export"><i class="fa fa-file-pdf" aria-hidden="true"></i> Export</button>
                             </div>
                             {{-- <div class="col-md-2">
-        
+
                             </div> --}}
                         </div>
-        
-        
+
+
                         <table class="table table-responsive" id="table">
                             <thead class="thead-dark">
                                 <tr>
@@ -144,7 +144,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-        
+
                             </tbody>
                         </table>
                     </div>
@@ -180,7 +180,7 @@
 
         var dataTable = new DataTable('#table', {
                 ajax: {
-                    url: "{{ route('report.get') }}",
+                    url: "{{ route('report.getDataUser') }}",
                     data: function(data) {
                         data.start_date = $('#start_date').val();
                         data.end_date = $('#end_date').val();

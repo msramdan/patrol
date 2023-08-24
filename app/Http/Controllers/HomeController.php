@@ -52,8 +52,6 @@ class HomeController extends Controller
         if (!empty($request->no_laporan)) {
             $reportsQuery->where('reports.no_laporan', $request->no_laporan);
         }
-
-
         $perPage = 5; // Ganti dengan jumlah yang sesuai
         $reports = $reportsQuery->simplePaginate($perPage);
 
@@ -63,12 +61,12 @@ class HomeController extends Controller
             'title' => 'Home',
             'no_laporans' => Report::select('no_laporan')->get(),
         ];
-        
+
 
         return view('home', $data);
     }
 
-    
+
 
 
 }

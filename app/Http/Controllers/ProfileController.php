@@ -59,7 +59,6 @@ class ProfileController extends Controller
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo');
             $photoName = time() . '.' . $photo->getClientOriginalExtension();
-
             // Membuat instance Intervention Image
             $image = Image::make($photo);
 
@@ -80,13 +79,10 @@ class ProfileController extends Controller
         if (empty($user)) {
             return back();
         }
-        
         $data = [
             'user' => $user,
 
         ];
-
-
         return view('profiledetail', $data);
     }
 }
