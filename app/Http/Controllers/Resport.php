@@ -101,7 +101,13 @@ class Resport extends Controller
         }
         $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
         $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
-        $query->where('reports.user_id', '=', dataUser()->id);
+        if (!empty($request->user_id)) {
+            $userIds = [];
+            foreach ($request->user_id as $val) {
+                array_push($userIds, decrypt($val));
+            }
+            $query->whereIn('reports.user_id', $userIds);
+        }
         $query->select('reports.*', 'user_creator.name as creator_name', 'user_updater.name as updater_name');
         return DataTables::of($query)
             ->addColumn('link', function ($report) {
