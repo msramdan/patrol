@@ -11,6 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 use PDF;
 
 class ReportController extends Controller
@@ -29,9 +30,11 @@ class ReportController extends Controller
 
         // Filter rentang tanggal
         if ($request->has('start_date') && $request->has('end_date')) {
-            $start = Carbon::parse($request->input('start_date'))->startOfDay();
-            $end = Carbon::parse($request->input('end_date'))->endOfDay();
-            $query->whereBetween('tanggal', [$start, $end]);
+            if ($request->start_date != null && $request->end_date != null) {
+                $start = Carbon::parse($request->input('start_date'))->startOfDay();
+                $end = Carbon::parse($request->input('end_date'))->endOfDay();
+                $query->whereBetween('tanggal', [$start, $end]);
+            }
         }
 
         if (!empty($request->user_id)) {
