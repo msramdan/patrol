@@ -46,7 +46,7 @@
             @foreach ($data as $item)
                 <tr>
                     <td>{{ $item->no_laporan }}</td>
-                    <td>{{ $item->name }}</td>
+                    <td>{{ $item->creator_name }}</td>
                     <td>{{ $item->judul }}</td>
                     <td>{{ $item->phone }}</td>
                     <td>{{ Carbon::parse($item->tanggal)->format('d M Y') }}</td>

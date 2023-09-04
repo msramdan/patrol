@@ -28,7 +28,7 @@ class ReportController extends Controller
     {
         $query = Report::query();
 
-        // Filter rentang tanggal
+        // clear
         if ($request->has('start_date') && $request->has('end_date')) {
             if ($request->start_date != null && $request->end_date != null) {
                 $start = Carbon::parse($request->input('start_date'))->startOfDay();
@@ -36,7 +36,6 @@ class ReportController extends Controller
                 $query->whereBetween('tanggal', [$start, $end]);
             }
         }
-
         if (!empty($request->user_id)) {
             $userIds = [];
             foreach ($request->user_id as $val) {
@@ -57,34 +56,31 @@ class ReportController extends Controller
 
     public function export(Request $request)
     {
-        $start = Carbon::parse($request->input('start_date'))->startOfDay();
-        $end = Carbon::parse($request->input('end_date'))->endOfDay();
 
-        if (!empty($request->user_id)) {
-            $userIds = [];
-            foreach ($request->user_id as $val) {
-                array_push($userIds, decrypt($val));
+        $query = Report::query();
+        if ($request->has('start_date') && $request->has('end_date')) {
+            if ($request->start_date != null && $request->end_date != null) {
+                $start = Carbon::parse($request->input('start_date'))->startOfDay();
+                $end = Carbon::parse($request->input('end_date'))->endOfDay();
+                $query->whereBetween('tanggal', [$start, $end]);
             }
-            // $query->whereIn('reports.user_id', $userIds);
         }
 
-        $data = Report::whereBetween('tanggal', [$start, $end])
-            ->leftJoin('users', 'reports.user_id', '=', 'users.id')
-            ->select(
-                'reports.*',
-                'users.name as name',
-            );
-        if (!empty($request->user_id)) {
+        if (!empty(json_decode($request->user_id))) {
             $userIds = [];
-            foreach ($request->user_id as $val) {
+            foreach (json_decode($request->user_id) as $val) {
                 array_push($userIds, decrypt($val));
             }
-            $data->whereIn('reports.user_id', $userIds);
+            $query->whereIn('reports.user_id', $userIds);
         }
-        $data = $data->get();
+
+        $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
+        $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
+        $query->select('reports.*', 'user_creator.name as creator_name', 'user_updater.name as updater_name');
+        $data = $query->get();
         $pdf = PDF::loadView('report.export', ['data' => $data]);
 
-        return $pdf->download($start . '-' . $end . '.pdf');
+        return $pdf->download('Laporan-kerja.pdf');
     }
 
     public function detail(Request $request)

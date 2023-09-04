@@ -63,10 +63,6 @@
                         <div class="col-md-4" >
                             <button type="button" class="btn btn-primary w-40" id="filter" style="float: left; margin-right:5px"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
                             <button type="button" class="btn btn-danger w-40" id="export"><i class="fa fa-file-pdf" aria-hidden="true"></i> Export</button>
-                        </div>
-                        {{-- <div class="col-md-2">
-
-                        </div> --}}
                     </div>
 
 
@@ -84,25 +80,14 @@
                             </tr>
                         </thead>
                         <tbody>
-
                         </tbody>
                     </table>
                 </div>
             </div>
-
         </div>
-
-
-
-
-
     </div>
-
-
 <script>
 $(document).ready(function () {
-
-
 
     var dataTable = new DataTable('#table', {
                 ajax: {
