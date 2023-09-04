@@ -157,6 +157,22 @@ $(document).ready(function () {
 
                 }
             });
+
+            exportPdf()
+
+            function exportPdf() {
+                $('#export').on('click', function() {
+                    var startDate = $('#start_date').val();
+                    var endDate = $('#end_date').val();
+                    var user_id ={{ $user->id }};
+                    var url = '{{ route('report.export') }}' + '?start_date=' + startDate +
+                        '&end_date=' + endDate+
+                        '&user_id=' + user_id;
+                    window.location.href = url;
+                });
+            }
+
+
 });
 </script>
 @endsection
