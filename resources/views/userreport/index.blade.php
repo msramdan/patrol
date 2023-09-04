@@ -26,7 +26,7 @@
                                     <i class="fa-solid fa-calendar"></i>
                                 </div>
                             </span>
-                            <input type="datetime-local" class="form-control" id="start_date">
+                            <input type="date" class="form-control" id="start_date">
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -36,13 +36,12 @@
                                     <i class="fa-solid fa-calendar"></i>
                                 </div>
                             </span>
-                            <input type="datetime-local" class="form-control" id="end_date">
+                            <input type="date" class="form-control" id="end_date">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="mb-3 input-group input-radius">
                                 <select class="mb-3" name="user_id[]" id="user_id" multiple="multiple">
-                                        <option value="">User</option>
                                         @foreach ($users as $user)
                                         <option value="{{ encrypt($user->id) }}">{{ $user->name }}</option>
                                         @endforeach
@@ -53,7 +52,7 @@
                         <button type="button" class="btn btn-primary w-40" id="filter" style="float: left; margin-right:5px"><i class="fa fa-filter" aria-hidden="true"></i> Filter</button>
                         <button type="button" class="btn btn-danger w-40" id="export"><i class="fa fa-file-pdf" aria-hidden="true"></i> Export</button>
                     </div>
-                    
+
                 </div>
 
 
@@ -124,7 +123,7 @@
                             <input name="photo" type="file" class="form-control">
                         </div>
 
-                        
+
 
                         @error('deskripsi')
                             <div class="alert text-danger mb-0">{{ $message }}</div>
@@ -238,8 +237,10 @@
                 $('#export').on('click', function() {
                     var startDate = $('#start_date').val();
                     var endDate = $('#end_date').val();
+                    var user_id = JSON.stringify($('#user_id').val());
                     var url = '{{ route('admin.report.export') }}' + '?start_date=' + startDate +
-                        '&end_date=' + endDate;
+                        '&end_date=' + endDate+
+                        '&user_id=' + user_id;
                     window.location.href = url;
                 });
             }

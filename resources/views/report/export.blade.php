@@ -31,8 +31,8 @@
 </style>
 
 <body>
-    <table class="table table-" style="font-size: 12px">
-        <thead class="thead-light">
+    <table class="table table-bordered" style="font-size: 12px">
+        <thead>
             <tr>
                 <th>No Laporan</th>
                 <th>Nama</th>

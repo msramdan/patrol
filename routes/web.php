@@ -22,6 +22,7 @@ Route::middleware(['auth', 'web'])->group(function () {
         Route::post('/save', [App\Http\Controllers\Resport::class, 'store'])->name('report.save');
         Route::get('/user', [App\Http\Controllers\Resport::class, 'user'])->name('report.user');
         Route::get('/get', [App\Http\Controllers\Resport::class, 'getData'])->name('report.get');
+        Route::get('/getDataProfile', [App\Http\Controllers\Resport::class, 'getDataProfile'])->name('report.getDataProfile');
         Route::get('/getDataUser', [App\Http\Controllers\Resport::class, 'getDataUser'])->name('report.getDataUser');
         Route::post('/detail', [App\Http\Controllers\Resport::class, 'detail'])->name('report.detail');
         Route::post('/edit', [App\Http\Controllers\Resport::class, 'edit'])->name('report.edit');

@@ -5,16 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Report;
 use App\Models\ReportComment;
 use App\Models\User;
-use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
 use Intervention\Image\Facades\Image;
 use DataTables;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
+use PDF;
 
 class Resport extends Controller
 {
@@ -116,6 +114,26 @@ class Resport extends Controller
             ->toJson();
     }
 
+    public function getDataProfile(Request $request)
+    {
+
+        $query = Report::query();
+        if (!empty($request->start_date) && !empty($request->end_date)) {
+            $start = Carbon::parse($request->input('start_date'))->startOfDay();
+            $end = Carbon::parse($request->input('end_date'))->endOfDay();
+            $query->whereBetween('tanggal', [$start, $end]);
+        }
+        $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
+        $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
+        $query->where('reports.user_id', '=',dataUser()->id);
+        $query->select('reports.*', 'user_creator.name as creator_name', 'user_updater.name as updater_name');
+        return DataTables::of($query)
+            ->addColumn('link', function ($report) {
+                return route('home', ['no_laporan' => $report->no_laporan]);
+            })
+            ->toJson();
+    }
+
     public function getDataUser(Request $request)
     {
         $query = Report::query();
@@ -192,23 +210,22 @@ class Resport extends Controller
     }
     public function export(Request $request)
     {
-        $start = Carbon::parse($request->input('start_date'))->startOfDay();
-        $end = Carbon::parse($request->input('end_date'))->endOfDay();
 
-        // DB::table('resport')->select();
-
-        $data = Report::whereBetween('tanggal', [$start, $end])
-            ->leftJoin('users', 'reports.user_id', '=', 'users.id')
-            ->select(
-                'reports.*',
-                'users.name as name',
-            )
-            ->where('reports.user_id', Auth::user()->id)
-            ->get();
-
-        $pdf = PDF::loadView('userreport.export', ['data' => $data]);
-
-        return $pdf->download($start . '-' . $end . '.pdf');
+        $query = Report::query();
+        if ($request->has('start_date') && $request->has('end_date')) {
+            if ($request->start_date != null && $request->end_date != null) {
+                $start = Carbon::parse($request->input('start_date'))->startOfDay();
+                $end = Carbon::parse($request->input('end_date'))->endOfDay();
+                $query->whereBetween('tanggal', [$start, $end]);
+            }
+        }
+        $query->where('reports.user_id', $request->user_id);
+        $query->leftJoin('users as user_creator', 'reports.user_id', '=', 'user_creator.id');
+        $query->leftJoin('users as user_updater', 'reports.user_update', '=', 'user_updater.id');
+        $query->select('reports.*', 'user_creator.name as creator_name', 'user_updater.name as updater_name');
+        $data = $query->get();
+        $pdf = PDF::loadView('report.export', ['data' => $data]);
+        return $pdf->download('Laporan-kerja.pdf');
     }
 
     public function comment($id)

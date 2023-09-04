@@ -1,6 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+    .dataTables_wrapper .dataTables_filter input {
+        border: 1px solid #aaa;
+        border-radius: 3px;
+        padding: 5px;
+        background-color: transparent;
+        color: inherit;
+        margin-left: 3px;
+        width: 150px;
+        height: 30px;
+        margin-bottom: 5px;
+    }
+</style>
+
     <div class="container profile-area">
         <div class="profile">
             <div class="main-profile">
@@ -47,7 +61,7 @@
                                         <i class="fa-solid fa-calendar"></i>
                                     </div>
                                 </span>
-                                <input type="datetime-local" class="form-control" id="start_date">
+                                <input type="date" class="form-control" id="start_date">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -57,7 +71,7 @@
                                         <i class="fa-solid fa-calendar"></i>
                                     </div>
                                 </span>
-                                <input type="datetime-local" class="form-control" id="end_date">
+                                <input type="date" class="form-control" id="end_date">
                             </div>
                         </div>
                         <div class="col-md-4" >
@@ -91,7 +105,7 @@ $(document).ready(function () {
 
     var dataTable = new DataTable('#table', {
                 ajax: {
-                    url: "{{ route('report.get') }}",
+                    url: "{{ route('report.getDataProfile') }}",
                     data: function(data) {
                         data.start_date = $('#start_date').val();
                         data.end_date = $('#end_date').val();

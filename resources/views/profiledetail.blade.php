@@ -106,7 +106,7 @@
                                             <i class="fa-solid fa-calendar"></i>
                                         </div>
                                     </span>
-                                    <input type="datetime-local" class="form-control" id="start_date">
+                                    <input type="date" class="form-control" id="start_date">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -116,7 +116,7 @@
                                             <i class="fa-solid fa-calendar"></i>
                                         </div>
                                     </span>
-                                    <input type="datetime-local" class="form-control" id="end_date">
+                                    <input type="date" class="form-control" id="end_date">
                                 </div>
                             </div>
                             <div class="col-md-4" >
@@ -140,7 +140,6 @@
                                     <th scope="col">Phone</th>
                                     <th scope="col">Status</th>
                                     <th scope="col">Gambar</th>
-                                    {{-- <th scope="col">Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -223,22 +222,7 @@
                             return element;
                         }
                     },
-                    // {
-                    //     data: null,
-                    //     render: function(data, type, row) {
-                    //         var element = `
-                    //     <div class="d-flex justify-content-center">
-                    //         <a href="${data.link}" class="btn btn-success btn-sm mx-1" ><i class="fa fa-eye" aria-hidden="true"></i></a>
-                    //         <button class="btn btn-primary btn-sm edit-button mx-1" data-id="${data.id}" data-bs-toggle="modal" data-bs-target="#edit-modal" ><i class="fa fa-pencil" aria-hidden="true"></i></button>
-                    //         <button class="btn btn-danger btn-sm delete-button mx-1" data-id="${data.id}"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                    //     </div>
-                    // `;
-                    //         return element;
-                    //     }
-                    // }
                 ],
-
-
                 'drawCallback': function() {
                     $('#filter').click(function() {
                         dataTable.ajax.reload();
@@ -247,9 +231,21 @@
                 }
             });
 
+            exportPdf()
+
+            function exportPdf() {
+                $('#export').on('click', function() {
+                    var startDate = $('#start_date').val();
+                    var endDate = $('#end_date').val();
+                    var user_id ={{ $user->id }};
+                    var url = '{{ route('report.export') }}' + '?start_date=' + startDate +
+                        '&end_date=' + endDate+
+                        '&user_id=' + user_id;
+                    window.location.href = url;
+                });
+            }
 
 
     });
 </script>
-<!-- Mirrored from soziety.dexignzone.com/xhtml/edit-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Aug 2023 02:37:20 GMT -->
 </html>
