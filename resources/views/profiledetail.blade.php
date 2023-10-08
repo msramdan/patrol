@@ -136,6 +136,7 @@
                                     <th scope="col">User Update</th>
                                     <th scope="col">No Laporan</th>
                                     <th scope="col">Judul</th>
+                                    <th scope="col">Lokasi</th>
                                     <th scope="col">Tanggal</th>
                                     <th scope="col">Phone</th>
                                     <th scope="col">Status</th>
@@ -204,6 +205,9 @@
                     },
                     {
                         data: 'judul',
+                    },
+                    {
+                        data: 'lokasi',
                     },
                     {
 

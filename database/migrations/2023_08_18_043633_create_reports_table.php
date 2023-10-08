@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone');
             $table->string('photo')->nullable();
             $table->enum('status_laporan', ['request', 'accept'])->default('request');
+            $table->string('lokasi');
             $table->timestamps();
         });
     }

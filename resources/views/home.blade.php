@@ -84,68 +84,79 @@
             <div class="post-area">
 
                 @foreach ($reports as $report)
-
-                <div class="card">
-                    <div class="card-body" style="padding-bottom: 0px">
-                        <div class="post-card">
-                            <div class="top-meta">
-                                <div class="d-flex justify-content-between align-items-start">
-                                    <a href="javascript:void(0);" class="media media-40">
-                                        @if (empty($report->user_photo))
-                                            <img class="rounded"
-                                                src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg"
-                                                alt="/">
-                                        @else
-                                            <img class="rounded" src="{{ asset('storage/profiles/' . $report->user_photo) }}"
-                                                alt="/">
-                                        @endif
-                                    </a>
-                                    <div class="meta-content ms-3">
-                                        <h6 class="title mb-0"><a href="javascript:void(0);">{{ $report->user_name }}</a></h6>
-                                        <ul class="meta-list" style="padding-left: 0px">
-                                            <li>
-                                                @if ($report->status_laporan == 'request')
-                                                    <span class="badge bg-secondary"><i class="fa fa-refresh" aria-hidden="true"></i> Belum di proses</span>
-                                                @else
-                                                    <span class="badge bg-success"><i class="fa fa-check" aria-hidden="true"></i> Sudah di proses</span>
-                                                @endif
-                                            </li>
-                                            <li class="title">
-                                                {{ \Carbon\Carbon::parse($report->tanggal)->diffForHumans() }}
-                                            </li>
-                                        </ul>
+                    <div class="card">
+                        <div class="card-body" style="padding-bottom: 0px">
+                            <div class="post-card">
+                                <div class="top-meta">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <a href="javascript:void(0);" class="media media-40">
+                                            @if (empty($report->user_photo))
+                                                <img class="rounded"
+                                                    src="{{ asset('template') }}/assets/images/stories/small/pic4.jpg"
+                                                    alt="/">
+                                            @else
+                                                <img class="rounded"
+                                                    src="{{ asset('storage/profiles/' . $report->user_photo) }}"
+                                                    alt="/">
+                                            @endif
+                                        </a>
+                                        <div class="meta-content ms-3">
+                                            <h6 class="title mb-0"><a
+                                                    href="javascript:void(0);">{{ $report->user_name }}</a></h6>
+                                            <ul class="meta-list" style="padding-left: 0px">
+                                                <li>
+                                                    @if ($report->status_laporan == 'request')
+                                                        <span class="badge bg-secondary"><i class="fa fa-refresh"
+                                                                aria-hidden="true"></i> Belum di proses</span>
+                                                    @else
+                                                        <span class="badge bg-success"><i class="fa fa-check"
+                                                                aria-hidden="true"></i> Sudah di proses</span>
+                                                    @endif
+                                                </li>
+                                                <li class="title">
+                                                    {{ \Carbon\Carbon::parse($report->tanggal)->diffForHumans() }}
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <p class="text-black">
-                            <p style="margin-bottom: 10px" class="title"><b><i class="fa fa-info-circle" aria-hidden="true"></i>
-                                    {{ $report->no_laporan }} - {{ $report->phone }}</b></p>
-                            <p style="text-align: justify"  class="title">
-                                {{ $report->deskripsi }}
-                            </p>
-                            </p>
-                            <div class="dz-media">
-                                <img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/"
-                                    style="width: 100%; height:250px">
-                                <div>
-                                    <div class="row mt-4">
-                                        <div class="col-md-12">
-                                            <div class="btn-group" style="float: left">
-                                                <a href="{{ route('comment', ['id' => encrypt($report->id)]) }}"
-                                                    class="btn btn-primary" autocomplete="off" style="width: 80px;text-align:left "><i class="fa fa-comment"
-                                                        aria-hidden="true"></i> {{ $report->comment_count }}</a>
-                                            </div>&nbsp;
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-danger">Update</button>
-                                                <button type="button"
-                                                    class="btn btn-danger dropdown-toggle dropdown-toggle-split"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <span class="visually-hidden">Toggle Dropdown</span>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item request" href="javascript:void(0);" data-id="{{ encrypt($report->id) }}">Belum di proses</a></li>
-                                                    <li><a class="dropdown-item accept" href="javascript:void(0);" data-id="{{ encrypt($report->id) }}" >Sudah di proses</a></li>
-                                                </ul>
+                                <p class="text-black">
+                                <p style="margin-bottom: 10px" class="title"><b><i class="fa fa-info-circle"
+                                            aria-hidden="true"></i>
+                                        {{ $report->no_laporan }} - {{ $report->phone }}</b></p>
+                                <p>Lokasi : {{ $report->lokasi }} </p>
+                                <p style="text-align: justify" class="title">
+                                    {{ $report->deskripsi }}
+                                </p>
+                                </p>
+                                <div class="dz-media">
+                                    <img src="{{ asset('storage/photos/' . $report->photo) }}" alt="/"
+                                        style="width: 100%; height:250px">
+                                    <div>
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <div class="btn-group" style="float: left">
+                                                    <a href="{{ route('comment', ['id' => encrypt($report->id)]) }}"
+                                                        class="btn btn-primary" autocomplete="off"
+                                                        style="width: 80px;text-align:left "><i class="fa fa-comment"
+                                                            aria-hidden="true"></i> {{ $report->comment_count }}</a>
+                                                </div>&nbsp;
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-danger">Update</button>
+                                                    <button type="button"
+                                                        class="btn btn-danger dropdown-toggle dropdown-toggle-split"
+                                                        data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <span class="visually-hidden">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item request" href="javascript:void(0);"
+                                                                data-id="{{ encrypt($report->id) }}">Belum di proses</a>
+                                                        </li>
+                                                        <li><a class="dropdown-item accept" href="javascript:void(0);"
+                                                                data-id="{{ encrypt($report->id) }}">Sudah di proses</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -153,10 +164,6 @@
                             </div>
                         </div>
                     </div>
-                  </div>
-
-
-
                 @endforeach
 
 
@@ -172,59 +179,63 @@
     </div>
 
 
-<script>
-    $(document).ready(function () {
-        $.ajaxSetup({
+    <script>
+        $(document).ready(function() {
+            $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
 
 
-        $('.accept').click(function (e) {
-            var id = $(this).attr('data-id');
-            var card =  $(this).closest('.card-body');
-            console.log(card)
-            card.find('.badge').html(`<i class="fa fa-check" aria-hidden="true"></i> Sudah di proses`);
-            card.find('.badge').removeClass('bg-secondary');
-            card.find('.badge').addClass('bg-success');
+            $('.accept').click(function(e) {
+                var id = $(this).attr('data-id');
+                var card = $(this).closest('.card-body');
+                console.log(card)
+                card.find('.badge').html(`<i class="fa fa-check" aria-hidden="true"></i> Sudah di proses`);
+                card.find('.badge').removeClass('bg-secondary');
+                card.find('.badge').addClass('bg-success');
 
-            $.ajax({
-                url: '{{ route("report.update") }}',
-                type: 'POST',
-                dataType: 'json',
-                data: {id: id,status:'accept'},
-            })
-        });
-        $('.request').click(function (e) {
-            var id = $(this).attr('data-id');
-            var card =  $(this).closest('.card-body');
-            card.find('.badge').html(`<i class="fa fa-refres" aria-hidden="true"></i> Belum di proses`);
-            card.find('.badge').removeClass('bg-success');
-            card.find('.badge').addClass('bg-secondary');
+                $.ajax({
+                    url: '{{ route('report.update') }}',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        id: id,
+                        status: 'accept'
+                    },
+                })
+            });
+            $('.request').click(function(e) {
+                var id = $(this).attr('data-id');
+                var card = $(this).closest('.card-body');
+                card.find('.badge').html(`<i class="fa fa-refres" aria-hidden="true"></i> Belum di proses`);
+                card.find('.badge').removeClass('bg-success');
+                card.find('.badge').addClass('bg-secondary');
 
-            $.ajax({
-                url: '{{ route("report.update") }}',
-                type: 'POST',
-                dataType: 'json',
-                data: {id: id,status:'request'},
-            })
-        });
-
-
-
-    });
-
-
-</script>
-
+                $.ajax({
+                    url: '{{ route('report.update') }}',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        id: id,
+                        status: 'request'
+                    },
+                })
+            });
 
 
-@push('js')
-    <script>
-        $(document).ready(function() {
-            $('.js-example-basic-single').select2();
+
         });
     </script>
-@endpush
+
+
+
+    @push('js')
+        <script>
+            $(document).ready(function() {
+                $('.js-example-basic-single').select2();
+            });
+        </script>
+    @endpush
 @endsection

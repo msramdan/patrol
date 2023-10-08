@@ -71,6 +71,7 @@ class Resport extends Controller
             'tanggal' => now(),
             'no_laporan' => $nomorLaporan,
             'judul' => $request->judul,
+            'lokasi' => $request->lokasi,
             'phone' => $request->phone,
             'photo' => $photoName, // Menyimpan nama foto
             'deskripsi' => $request->deskripsi,

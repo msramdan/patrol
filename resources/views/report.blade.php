@@ -65,6 +65,13 @@
                             <input name="judul" type="text" value="{{ old('judul') }}" class="form-control" placeholder="Judul Laporan">
                         </div>
 
+                        @error('lokasi')
+                            <div class="alert text-danger mb-0">{{ $message }}</div>
+                        @enderror
+                        <div class="mb-3 input-group input-mini">
+                            <input name="lokasi" type="text" value="{{ old('lokasi') }}" class="form-control" placeholder="Lokasi">
+                        </div>
+
                         @error('phone')
                             <div class="alert text-danger">{{ $message }}</div>
                         @enderror

@@ -101,6 +101,7 @@
 					<p class="text-black">
 					<p style="margin-bottom: 10px" class="title"><b><i class="fa fa-info-circle" aria-hidden="true"></i>
 							{{ $report->no_laporan }} - {{ $report->phone }}</b></p>
+                            <p>Lokasi : {{ $report->lokasi }} </p>
 					<p style="text-align: justify" class="title">
 						{{ $report->deskripsi }}
 					</p>

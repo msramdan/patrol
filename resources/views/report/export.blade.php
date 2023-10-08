@@ -37,6 +37,7 @@
                 <th>No Laporan</th>
                 <th>Nama</th>
                 <th>Judul</th>
+                <th>Lokasi</th>
                 <th>No HP</th>
                 <th>Tanggal</th>
                 <th>Photo</th>
@@ -48,6 +49,7 @@
                     <td>{{ $item->no_laporan }}</td>
                     <td>{{ $item->creator_name }}</td>
                     <td>{{ $item->judul }}</td>
+                    <td>{{ $item->lokasi }}</td>
                     <td>{{ $item->phone }}</td>
                     <td>{{ Carbon::parse($item->tanggal)->format('d M Y') }}</td>
                     <td>
