@@ -37,7 +37,6 @@ class Resport extends Controller
             'mimes' => ':attribute harus berformat jpeg, png, jpg, atau gif.',
         ]);
 
-        // Menyimpan foto yang diunggah
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo');
             $photoName = time() . '.' . $photo->getClientOriginalExtension();
@@ -47,7 +46,9 @@ class Resport extends Controller
 
             // Resize atau crop gambar sesuai kebutuhan
             $image->fit(800, 600); // Ubah ukuran sesuai preferensi
-            $photo->storeAs('public/photos', $photoName);
+
+            // Simpan gambar dengan kompresi
+            $image->save(storage_path("app/public/photos/{$photoName}"), 60); // Ubah quality sesuai kebutuhan (0-100)
         }
 
         // Mengambil informasi tahun, bulan, dan tanggal
