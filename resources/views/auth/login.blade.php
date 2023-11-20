@@ -25,6 +25,7 @@
         rel="stylesheet">
 
 </head>
+
 <body class="gradiant-bg">
     <div class="page-wraper">
         <div id="preloader">
@@ -33,9 +34,17 @@
         <div class="content-body">
             <div class="container vh-100">
                 <div class="welcome-area">
-                    <div class="bg-image bg-image-overlay" style="background-image: url(template/assets/images/login/pic4.jpg);">
+                    <div class="bg-image bg-image-overlay"
+                        style="background-image: url(template/assets/images/login/pic4.jpg);">
                     </div>
+
                     <div class="join-area">
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
                         <div class="started">
                             <h1 class="title">Masuk Aplikasi</h1>
                             <p>Silahkan login untuk masuk kedalam aplikasi.</p>
@@ -57,7 +66,10 @@
                                         </svg>
                                     </div>
                                 </span>
-                                <input type="text" autofocus class="form-control @error('email') is-invalid @enderror" placeholder="Email" value="{{ old('email') }}" id="email" name="email" required autocomplete="off">
+                                <input type="text" autofocus
+                                    class="form-control @error('email') is-invalid @enderror" placeholder="Email"
+                                    value="{{ old('email') }}" id="email" name="email" required
+                                    autocomplete="off">
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -77,7 +89,10 @@
                                         </svg>
                                     </div>
                                 </span>
-                                <input type="password" id="password" class="form-control dz-password @error('password') is-invalid @enderror" placeholder="Password" required name="password" required autocomplete="current-password">
+                                <input type="password" id="password"
+                                    class="form-control dz-password @error('password') is-invalid @enderror"
+                                    placeholder="Password" required name="password" required
+                                    autocomplete="current-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -96,15 +111,17 @@
                         <center>
                             <span>Atau masuk dengan</span>
                             <div class="social-box">
-                                <a href="{{ route('auth',['provider'=>'google']) }} ">
+                                <a href="{{ route('auth', ['provider' => 'google']) }} ">
                                     <img src="{{ asset('template') }}/assets/images/icons/google.png" alt="/">
                                 </a>
                             </div>
                         </center>
 
                         <div class="d-flex align-items-center justify-content-center">
-                            <a href="javascript:void(0);" class="text-light text-center d-block">Tidak memiliki akun ?</a>
-                            <a href="{{ route('register') }}" class="btn-link d-block ms-3 text-underline">Mendaftar di Sini</a>
+                            <a href="javascript:void(0);" class="text-light text-center d-block">Tidak memiliki akun
+                                ?</a>
+                            <a href="{{ route('register') }}" class="btn-link d-block ms-3 text-underline">Mendaftar
+                                di Sini</a>
                         </div>
                     </div>
                 </div>
@@ -119,4 +136,5 @@
     <script src="{{ asset('template') }}/assets/js/custom.js"></script>
     @include('sweetalert::alert')
 </body>
+
 </html>
